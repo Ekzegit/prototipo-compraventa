@@ -1,0 +1,146 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "descripcion",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "propietario",
+          "type": "address"
+        }
+      ],
+      "name": "PropiedadRegistrada",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "nuevoPropietario",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "precio",
+          "type": "uint256"
+        }
+      ],
+      "name": "PropiedadVendida",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "contadorPropiedades",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "propiedades",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "descripcion",
+          "type": "string"
+        },
+        {
+          "internalType": "address payable",
+          "name": "propietario",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "enVenta",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "precio",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "descripcion",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "precio",
+          "type": "uint256"
+        }
+      ],
+      "name": "registrarPropiedad",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "comprarPropiedad",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function",
+      "payable": true
+    }
+  ]
+}
+  
