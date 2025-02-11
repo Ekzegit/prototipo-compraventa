@@ -2,9 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\backend",
+    "\\backend\\controllers",
+    "\\backend\\routes",
+    "\\build",
+    "\\build\\contracts",
     "\\contracts",
+    "\\frontend",
+    "\\frontend\\src\\components",
     "\\migrations"
   ],
-  "SelectedNode": "\\backend\\index.js",
+  "SelectedNode": "\\backend\\controllers\\saldoController.js",
   "PreviewInSolutionExplorer": false
 }

@@ -43,7 +43,7 @@ contract CompraventaInmobiliaria {
     }
 
     function registrarPropiedad(string memory _descripcion, uint _precio) public {
-        require(_precio > 0, "El precio debe ser mayor que cero.");
+        require(_precio > 0, "El precio debe ser mayor a 0.");
         contadorPropiedades++;
         propiedades[contadorPropiedades] = Propiedad(contadorPropiedades, msg.sender, _descripcion, _precio, EstadoPropiedad.Disponible);
     }
@@ -69,10 +69,9 @@ contract CompraventaInmobiliaria {
     function rechazarSolicitud(uint _solicitudId) public soloPropietario(solicitudes[_solicitudId].propiedadId) {
         SolicitudCompraventa storage solicitud = solicitudes[_solicitudId];
         require(!solicitud.aceptada, "No se puede rechazar una solicitud ya aceptada.");
-
+        
         propiedades[solicitud.propiedadId].estado = EstadoPropiedad.Disponible;
         payable(solicitud.comprador).transfer(solicitud.oferta);
-
         delete solicitudes[_solicitudId];
     }
 
@@ -83,11 +82,10 @@ contract CompraventaInmobiliaria {
 
         solicitud.verificada = true;
         Propiedad storage propiedad = propiedades[solicitud.propiedadId];
-
         address propietarioAnterior = propiedad.propietario;
         propiedad.propietario = solicitud.comprador;
         propiedad.estado = EstadoPropiedad.Vendida;
 
         payable(propietarioAnterior).transfer(solicitud.oferta);
     }
-} 
+}
