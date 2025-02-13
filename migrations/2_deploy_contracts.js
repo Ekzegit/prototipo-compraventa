@@ -1,7 +1,6 @@
 const CompraventaInmobiliaria = artifacts.require("CompraventaInmobiliaria");
-module.exports = function (deployer) {
-    deployer.deploy(CompraventaInmobiliaria, { gas: 6000000 });
+module.exports = function (deployer, network, accounts) {
+    deployer.deploy(CompraventaInmobiliaria, accounts[2]); // Notario fijo en accounts[2]
 };
-
 
 

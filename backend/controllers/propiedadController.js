@@ -1,19 +1,43 @@
 ﻿const { contrato, web3 } = require('../controllers/contratoService');
 
-// Ruta para obtener una propiedad por ID
+// Nueva función para registrar una propiedad
+exports.registrarPropiedad = async (req, res) => {
+    try {
+        const { descripcion, precio, propietario } = req.body;
+
+        if (!descripcion || !precio || !propietario) {
+            return res.status(400).json({ error: 'Debe proporcionar descripción, precio y propietario.' });
+        }
+
+        const resultado = await contrato.methods.registrarPropiedad(descripcion, web3.utils.toWei(precio, 'ether')).send({
+            from: propietario,
+            gas: 3000000,
+            gasPrice: await web3.eth.getGasPrice()
+        });
+
+        res.json({
+            mensaje: 'Propiedad registrada con éxito.',
+            tx: resultado.transactionHash
+        });
+
+    } catch (error) {
+        console.error('Error al registrar la propiedad:', error);
+        res.status(500).json({ error: 'Error al registrar la propiedad.', detalles: error.message });
+    }
+};
+
+// Función para obtener una propiedad por ID
 exports.obtenerPropiedad = async (req, res) => {
     try {
         const propiedadId = req.params.id;
         const propiedad = await contrato.methods.propiedades(propiedadId).call();
 
-        // Verificar si la propiedad existe
         if (propiedad.propietario === '0x0000000000000000000000000000000000000000') {
             return res.status(404).json({ error: 'Propiedad no encontrada' });
         }
 
         const estadosPropiedad = ["Disponible", "En negociación", "Vendida"];
 
-        // Convertir valores BigInt a string para evitar problemas de serialización
         const propiedadFormateada = {
             id: propiedad.id.toString(),
             propietario: propiedad.propietario,
@@ -29,7 +53,7 @@ exports.obtenerPropiedad = async (req, res) => {
     }
 };
 
-// ✅ Nueva función para aceptar una solicitud de compra
+// Función para aceptar una solicitud de compra
 exports.aceptarSolicitud = async (req, res) => {
     try {
         const { solicitudId, propietario } = req.body;
@@ -41,7 +65,7 @@ exports.aceptarSolicitud = async (req, res) => {
         const resultado = await contrato.methods.aceptarSolicitud(solicitudId).send({
             from: propietario,
             gas: 3000000,
-            gasPrice: await web3.eth.getGasPrice() // ✅ Corregido
+            gasPrice: await web3.eth.getGasPrice()
         });
 
         res.json({
@@ -54,4 +78,3 @@ exports.aceptarSolicitud = async (req, res) => {
         res.status(500).json({ error: 'Error al aceptar la solicitud de compra.', detalles: error.message });
     }
 };
-
