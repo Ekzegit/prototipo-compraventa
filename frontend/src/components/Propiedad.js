@@ -1,30 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import { obtenerPropiedad } from '../services/api';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { obtenerPropiedad } from "../services/api";
 
-const Propiedad = ({ id }) => {
-  const [propiedad, setPropiedad] = useState(null);
+export default function Propiedad() {
+    const { id } = useParams(); // <-- Obtener el ID de la URL correctamente
+    const [propiedad, setPropiedad] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await obtenerPropiedad(id);
-      setPropiedad(data);
-    };
+    useEffect(() => {
+        console.log("ID recibido en Propiedad.js:", id); // <-- Agregar log para depurar
 
-    fetchData();
-  }, [id]);
+        if (!id || id === "undefined") {
+            console.error("Error: ID de propiedad inválido.");
+            setLoading(false);
+            return;
+        }
 
-  if (!propiedad) {
-    return <p>Cargando propiedad...</p>;
-  }
+        async function cargarPropiedad() {
+            try {
+                const datos = await obtenerPropiedad(id);
+                setPropiedad(datos);
+            } catch (error) {
+                console.error("Error al obtener la propiedad:", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        cargarPropiedad();
+    }, [id]);
 
-  return (
-    <div>
-      <h2>{propiedad.descripcion}</h2>
-      <p><strong>Propietario:</strong> {propiedad.propietario}</p>
-      <p><strong>Precio:</strong> {parseFloat(propiedad.precio) / 1e18} ETH</p>
-      <p><strong>En Venta:</strong> {propiedad.enVenta ? 'Si' : 'No'}</p>
-    </div>
-  );
-};
+    if (loading) return <p>Cargando propiedad...</p>;
+    if (!propiedad) return <p>No se encontró la propiedad.</p>;
 
-export default Propiedad;
+    return (
+        <div>
+            <h1>{propiedad.nombre}</h1>
+            <p><strong>Precio:</strong> {propiedad.precio} ETH</p>
+            <p><strong>Estado:</strong> {propiedad.estado}</p>
+            <p><strong>Propietario:</strong> {propiedad.propietario}</p>
+        </div>
+    );
+}
+
+
+

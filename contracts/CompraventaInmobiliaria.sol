@@ -55,7 +55,13 @@ contract CompraventaInmobiliaria {
         require(_precio > 0, "El precio debe ser mayor a 0.");
         
         contadorPropiedades++;
-        propiedades[contadorPropiedades] = Propiedad(contadorPropiedades, msg.sender, _descripcion, _precio, EstadoPropiedad.Disponible);
+        propiedades[contadorPropiedades] = Propiedad(
+            contadorPropiedades,
+            msg.sender,
+            _descripcion,
+            _precio,
+            EstadoPropiedad.Disponible
+        );
     }
 
     function solicitarCompraventa(uint _propiedadId) public payable {
@@ -103,4 +109,3 @@ contract CompraventaInmobiliaria {
         payable(propietarioAnterior).transfer(solicitud.oferta);
     }
 }
-

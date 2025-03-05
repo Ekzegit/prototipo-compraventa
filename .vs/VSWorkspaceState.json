@@ -3,8 +3,11 @@
     "",
     "\\backend",
     "\\backend\\controllers",
-    "\\backend\\routes"
+    "\\build\\contracts",
+    "\\frontend",
+    "\\frontend\\src",
+    "\\frontend\\src\\components"
   ],
-  "SelectedNode": "\\backend\\controllers\\solicitudController.js",
+  "SelectedNode": "\\frontend\\src\\components\\Propiedad.js",
   "PreviewInSolutionExplorer": false
 }
