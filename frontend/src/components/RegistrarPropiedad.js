@@ -5,16 +5,32 @@ const RegistrarPropiedad = () => {
     const [descripcion, setDescripcion] = useState('');
     const [precio, setPrecio] = useState('');
     const [mensaje, setMensaje] = useState('');
+    const [cargando, setCargando] = useState(false); // Estado para manejar la carga
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validaciones
+        if (!descripcion.trim()) {
+            setMensaje('⚠️ La descripción no puede estar vacía.');
+            return;
+        }
+        if (isNaN(precio) || Number(precio) <= 0) {
+            setMensaje('⚠️ El precio debe ser un número mayor a 0.');
+            return;
+        }
+
         try {
+            setCargando(true);
             await registrarPropiedad(descripcion, precio);
-            setMensaje('Propiedad registrada exitosamente.');
+            setMensaje('✅ Propiedad registrada exitosamente.');
             setDescripcion('');
             setPrecio('');
         } catch (error) {
-            setMensaje('Error al registrar la propiedad.');
+            console.error('Error al registrar la propiedad:', error);
+            setMensaje('❌ Error al registrar la propiedad.');
+        } finally {
+            setCargando(false);
         }
     };
 
@@ -40,7 +56,9 @@ const RegistrarPropiedad = () => {
                         required
                     />
                 </div>
-                <button type="submit">Registrar</button>
+                <button type="submit" disabled={cargando}>
+                    {cargando ? 'Registrando...' : 'Registrar'}
+                </button>
             </form>
             {mensaje && <p>{mensaje}</p>}
         </div>

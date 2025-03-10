@@ -1,3 +1,5 @@
+﻿const { execSync } = require("child_process");
+
 module.exports = {
   networks: {
     development: {
@@ -13,6 +15,7 @@ module.exports = {
       version: "0.8.2"
     }
   }
+
 };
 
 

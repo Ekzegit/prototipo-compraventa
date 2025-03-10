@@ -81,15 +81,32 @@ exports.aceptarSolicitud = async (req, res) => {
 
 exports.obtenerPropiedades = async (req, res) => {
     try {
-        const propiedades = [
-            { id: "1", nombre: "Casa en Santiago", precio: "2.5", estado: "Disponible", propietario: "0x627306090abaB3A6e1400e9345bC60c78a8BEf57" },
-            { id: "2", nombre: "Departamento en Viña", precio: "1.8", estado: "En Venta", propietario: "0x123456789abcdef123456789abcdef123456789a" }
-        ];
-        console.log("Propiedades enviadas desde la API:", propiedades);
+        const totalPropiedades = await contrato.methods.getTotalPropiedades().call();
+        let propiedades = [];
+
+        for (let i = 1; i <= totalPropiedades; i++) {
+            const propiedad = await contrato.methods.propiedades(i).call();
+
+            // Verificar que la propiedad realmente existe
+            if (propiedad.propietario !== "0x0000000000000000000000000000000000000000") {
+                propiedades.push({
+                    id: propiedad.id.toString(),
+                    nombre: propiedad.descripcion,
+                    precio: web3.utils.fromWei(propiedad.precio.toString(), "ether") + " ETH",
+                    estado: ["Disponible", "En negociación", "Vendida"][parseInt(propiedad.estado)] || "Desconocido",
+                    propietario: propiedad.propietario
+                });
+            }
+        }
+
+        console.log("🔹 Propiedades obtenidas desde la blockchain:", propiedades);
         res.json(propiedades);
+
     } catch (error) {
-        res.status(500).json({ error: "Error al obtener propiedades" });
+        console.error("❌ Error al obtener propiedades:", error);
+        res.status(500).json({ error: "Error al obtener propiedades.", detalles: error.message });
     }
 };
+
 
 

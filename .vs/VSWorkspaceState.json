@@ -3,11 +3,15 @@
     "",
     "\\backend",
     "\\backend\\controllers",
+    "\\backend\\routes",
+    "\\build",
     "\\build\\contracts",
     "\\frontend",
     "\\frontend\\src",
-    "\\frontend\\src\\components"
+    "\\frontend\\src\\components",
+    "\\frontend\\src\\contracts",
+    "\\frontend\\src\\services"
   ],
-  "SelectedNode": "\\frontend\\src\\components\\Propiedad.js",
+  "SelectedNode": "\\frontend\\src\\components\\VerificarTransaccion.js",
   "PreviewInSolutionExplorer": false
 }

@@ -3,7 +3,6 @@ pragma solidity ^0.8.0;
 
 contract CompraventaInmobiliaria {
     address public notario;
-    address public propietario;
     address public comprador;
 
     enum EstadoPropiedad { Disponible, EnProcesoDeVenta, Vendida }
@@ -63,6 +62,15 @@ contract CompraventaInmobiliaria {
             EstadoPropiedad.Disponible
         );
     }
+
+    function getTotalPropiedades() public view returns (uint) {
+        return contadorPropiedades;
+    }
+
+    function getTotalSolicitudes() public view returns (uint) {
+    return contadorSolicitudes;
+}
+
 
     function solicitarCompraventa(uint _propiedadId) public payable {
         Propiedad storage propiedad = propiedades[_propiedadId];

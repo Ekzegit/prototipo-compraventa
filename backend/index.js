@@ -21,6 +21,7 @@ const web3 = new Web3(process.env.NETWORK);
 
 // Importar el ABI y obtener la dirección del contrato desde .env o la migración
 const contratoData = require('../build/contracts/CompraventaInmobiliaria.json');
+
 const contratoDireccion = process.env.CONTRACT_ADDRESS || contratoData.networks[Object.keys(contratoData.networks)[0]]?.address;
 
 if (!contratoDireccion) {

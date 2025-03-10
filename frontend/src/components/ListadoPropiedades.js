@@ -10,7 +10,7 @@ export default function ListadoPropiedades() {
         async function cargarPropiedades() {
             try {
                 const datos = await obtenerPropiedades();
-                console.log("Propiedades obtenidas:", datos); // <-- Verificar los datos recibidos
+                console.log("Propiedades obtenidas:", datos);
                 setPropiedades(datos);
             } catch (error) {
                 console.error("Error al cargar propiedades:", error);
@@ -26,14 +26,18 @@ export default function ListadoPropiedades() {
     return (
         <div>
             <h1>Listado de Propiedades</h1>
+            <button onClick={() => window.location.reload()}>Actualizar</button>
             <ul>
                 {propiedades.map((propiedad) => (
                     <li key={propiedad.id}>
-                        <Link to={`/propiedades/${propiedad.id}`}>{propiedad.nombre}</Link>
+                        <strong>ID: {propiedad.id} - </strong>
+                        <Link to={`/propiedades/${propiedad.id}`}>
+                            {propiedad.nombre}
+                        </Link> - {propiedad.precio} -
+                        <i> {propiedad.estado === "Vendida" ? "Vendida" : "Disponible"}</i>
                     </li>
                 ))}
             </ul>
         </div>
     );
 }
-
