@@ -26,6 +26,14 @@ const VerificarTransaccion = () => {
             setMensaje(`✅ ${respuesta.data.mensaje}`);
             setSolicitudId("");
             setNotario("");
+
+            // Obtener los saldos del comprador y del vendedor
+            const saldoComprador = await axios.get(`http://localhost:3001/saldos/${solicitudId}/comprador`);
+            const saldoVendedor = await axios.get(`http://localhost:3001/saldos/${solicitudId}/vendedor`);
+
+            // Mostrar los saldos en una ventana emergente
+            alert(`💰 Saldos después de la transacción:\n\n👤 Comprador: ${saldoComprador.data.saldo} ETH\n🏠 Vendedor: ${saldoVendedor.data.saldo} ETH`);
+
         } catch (error) {
             console.error("❌ Error al verificar la transacción:", error.response?.data || error.message);
             setError(error.response?.data?.error || "❌ Ocurrió un error al verificar la transacción.");

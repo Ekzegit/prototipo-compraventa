@@ -42,6 +42,37 @@ console.log("Notario:", process.env.NOTARIO);
 app.use('/propiedades', propiedadRoutes);
 app.use('/solicitudes', solicitudRoutes);
 
+// 📌 Rutas para obtener los saldos del comprador y del vendedor
+app.get("/saldos/:solicitudId/comprador", async (req, res) => {
+    try {
+        const comprador = process.env.COMPRADOR;
+        if (!comprador) {
+            return res.status(400).json({ error: "❌ No se ha configurado la dirección del comprador en .env" });
+        }
+
+        const saldo = await web3.eth.getBalance(comprador);
+        res.json({ saldo: web3.utils.fromWei(saldo, "ether") });
+    } catch (error) {
+        console.error("❌ Error al obtener el saldo del comprador:", error);
+        res.status(500).json({ error: "Error al obtener el saldo del comprador" });
+    }
+});
+
+app.get("/saldos/:solicitudId/vendedor", async (req, res) => {
+    try {
+        const vendedor = process.env.PROPIETARIO;
+        if (!vendedor) {
+            return res.status(400).json({ error: "❌ No se ha configurado la dirección del vendedor en .env" });
+        }
+
+        const saldo = await web3.eth.getBalance(vendedor);
+        res.json({ saldo: web3.utils.fromWei(saldo, "ether") });
+    } catch (error) {
+        console.error("❌ Error al obtener el saldo del vendedor:", error);
+        res.status(500).json({ error: "Error al obtener el saldo del vendedor" });
+    }
+});
+
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor ejecutándose en http://localhost:${port}`);

@@ -3,32 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\controllers\\solicitudController.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\controllers\\solicitudController.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerificarTransaccion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\VerificarTransaccion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\routes\\solicitudRoutes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\routes\\solicitudRoutes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoSolicitudes.js||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\ListadoSolicitudes.js||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\services\\blockchainService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\services\\blockchainService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +26,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "index.js",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\index.js",
+              "RelativeDocumentMoniker": "backend\\index.js",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\index.js",
+              "RelativeToolTip": "backend\\index.js",
+              "ViewState": "AQIAACEAAAAAAAAAAAAYwE8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-16T21:22:50.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".env",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\.env",
+              "RelativeDocumentMoniker": "backend\\.env",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\.env",
+              "RelativeToolTip": "backend\\.env",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-16T21:14:21.374Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -52,87 +70,22 @@
               "RelativeDocumentMoniker": "frontend\\src\\components\\VerificarTransaccion.js",
               "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerificarTransaccion.js",
               "RelativeToolTip": "frontend\\src\\components\\VerificarTransaccion.js",
-              "ViewState": "AQIAABkAAAAAAAAAAAAuwD4AAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAYwB8AAABqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-10T03:24:03.084Z",
+              "WhenOpened": "2025-03-16T20:59:38.276Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "index.js",
-              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\index.js",
-              "RelativeDocumentMoniker": "backend\\index.js",
-              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\index.js",
-              "RelativeToolTip": "backend\\index.js",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAuwDAAAAAAAAAA",
+              "Title": "blockchainService.js",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\services\\blockchainService.js",
+              "RelativeDocumentMoniker": "frontend\\src\\services\\blockchainService.js",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\services\\blockchainService.js",
+              "RelativeToolTip": "frontend\\src\\services\\blockchainService.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-10T03:01:07.747Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "App.js",
-              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\App.js",
-              "RelativeDocumentMoniker": "frontend\\src\\App.js",
-              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\App.js",
-              "RelativeToolTip": "frontend\\src\\App.js",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAAwCQAAABSAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-10T02:53:50.226Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ListadoSolicitudes.js",
-              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoSolicitudes.js",
-              "RelativeDocumentMoniker": "frontend\\src\\components\\ListadoSolicitudes.js",
-              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoSolicitudes.js",
-              "RelativeToolTip": "frontend\\src\\components\\ListadoSolicitudes.js",
-              "ViewState": "AQIAABQAAAAAAAAAAAAuwDkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-10T02:53:17.406Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "solicitudController.js",
-              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\controllers\\solicitudController.js",
-              "RelativeDocumentMoniker": "backend\\controllers\\solicitudController.js",
-              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\controllers\\solicitudController.js",
-              "RelativeToolTip": "backend\\controllers\\solicitudController.js",
-              "ViewState": "AQIAAGYAAAAAAAAAAAAAAIcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-09T19:21:44.823Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "solicitudRoutes.js",
-              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\routes\\solicitudRoutes.js",
-              "RelativeDocumentMoniker": "backend\\routes\\solicitudRoutes.js",
-              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\routes\\solicitudRoutes.js",
-              "RelativeToolTip": "backend\\routes\\solicitudRoutes.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-09T19:21:20.175Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "index.js",
-              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\index.js",
-              "RelativeDocumentMoniker": "frontend\\src\\index.js",
-              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\index.js",
-              "RelativeToolTip": "frontend\\src\\index.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-08T22:36:41.296Z",
+              "WhenOpened": "2025-03-16T20:17:48.235Z",
               "EditorCaption": ""
             }
           ]

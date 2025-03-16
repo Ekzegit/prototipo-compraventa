@@ -1,7 +1,7 @@
 ﻿import { Web3 } from "web3"; // Web3 v4 usa importación con llaves
 import contratoABI from "../contracts/CompraventaInmobiliaria.json"; // Verifica que la ruta es correcta
 
-const CONTRACT_ADDRESS = "0xdDA6327139485221633A1FcD65f4aC932E60A2e1"; // Reemplaza con la dirección real
+const CONTRACT_ADDRESS = "0xF12b5dd4EAD5F743C6BaA640B0216200e89B60Da"; // Reemplaza con la dirección real
 
 // Conectar a Ganache localmente
 const web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
