@@ -1,0 +1,51 @@
+.verificar-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.07);
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.verificar-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+    .verificar-form input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    .verificar-form button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+        .verificar-form button:hover {
+            background-color: #45a049;
+        }
+
+.mensaje {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.exito {
+    color: green;
+}
+
+.error {
+    color: red;
+}

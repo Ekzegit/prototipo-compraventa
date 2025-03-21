@@ -1,5 +1,6 @@
 ﻿import React, { useState } from "react";
 import { web3, contrato } from "../services/blockchainService";
+import "./AceptarSolicitud.css"; // Importa el CSS externo
 
 const AceptarSolicitud = () => {
     const [solicitudId, setSolicitudId] = useState("");
@@ -23,9 +24,9 @@ const AceptarSolicitud = () => {
     };
 
     return (
-        <div>
+        <div className="aceptar-solicitud">
             <h2>Aceptar Solicitud de Compra</h2>
-            <form onSubmit={manejarEnvio}>
+            <form onSubmit={manejarEnvio} className="formulario-solicitud">
                 <input
                     type="text"
                     placeholder="ID de la solicitud"
@@ -35,7 +36,7 @@ const AceptarSolicitud = () => {
                 />
                 <button type="submit">Aceptar Solicitud</button>
             </form>
-            {mensaje && <p>{mensaje}</p>}
+            {mensaje && <p className="mensaje">{mensaje}</p>}
         </div>
     );
 };

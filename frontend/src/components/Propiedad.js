@@ -1,17 +1,16 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { obtenerPropiedad } from "../services/api";
+import "./Propiedad.css";
 
 export default function Propiedad() {
-    const { id } = useParams(); // <-- Obtener el ID de la URL correctamente
+    const { id } = useParams();
     const [propiedad, setPropiedad] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        console.log("ID recibido en Propiedad.js:", id); // <-- Agregar log para depurar
-
         if (!id || id === "undefined") {
-            console.error("Error: ID de propiedad inv�lido.");
+            console.error("⚠️ ID de propiedad inválido.");
             setLoading(false);
             return;
         }
@@ -21,7 +20,7 @@ export default function Propiedad() {
                 const datos = await obtenerPropiedad(id);
                 setPropiedad(datos);
             } catch (error) {
-                console.error("Error al obtener la propiedad:", error);
+                console.error("❌ Error al obtener la propiedad:", error);
             } finally {
                 setLoading(false);
             }
@@ -29,18 +28,18 @@ export default function Propiedad() {
         cargarPropiedad();
     }, [id]);
 
-    if (loading) return <p>Cargando propiedad...</p>;
-    if (!propiedad) return <p>No se encontr� la propiedad.</p>;
+    if (loading) return <p className="mensaje-cargando">⏳ Cargando propiedad...</p>;
+    if (!propiedad) return <p className="mensaje-error">❌ No se encontró la propiedad.</p>;
 
     return (
-        <div>
-            <h1>{propiedad.nombre}</h1>
-            <p><strong>Precio:</strong> {propiedad.precio} ETH</p>
-            <p><strong>Estado:</strong> {propiedad.estado}</p>
-            <p><strong>Propietario:</strong> {propiedad.propietario}</p>
+        <div className="propiedad-container">
+            <h2 className="propiedad-titulo">🏡 {propiedad.nombre || `Propiedad #${propiedad.id}`}</h2>
+            <div className="propiedad-detalles">
+                <p><strong>📝 Descripción:</strong> {propiedad.descripcion}</p>
+                <p><strong>💰 Precio:</strong> {propiedad.precio} ETH</p>
+                <p><strong>📄 Estado:</strong> {propiedad.estado}</p>
+                <p><strong>👤 Propietario:</strong> {propiedad.propietario}</p>
+            </div>
         </div>
     );
 }
-
-
-

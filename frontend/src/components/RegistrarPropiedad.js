@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { registrarPropiedad } from '../services/blockchainService';
+import './RegistrarPropiedad.css'; // Importar estilos externos
 
 const RegistrarPropiedad = ({ cuenta }) => {
     const [descripcion, setDescripcion] = useState('');
@@ -10,7 +11,6 @@ const RegistrarPropiedad = ({ cuenta }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validaciones
         if (!cuenta) {
             setMensaje('⚠️ Debes conectar MetaMask antes de registrar una propiedad.');
             return;
@@ -26,7 +26,7 @@ const RegistrarPropiedad = ({ cuenta }) => {
 
         try {
             setCargando(true);
-            await registrarPropiedad(descripcion, precio, cuenta); // ✅ Pasar la cuenta del usuario
+            await registrarPropiedad(descripcion, precio, cuenta);
             setMensaje('✅ Propiedad registrada exitosamente.');
             setDescripcion('');
             setPrecio('');
@@ -39,10 +39,10 @@ const RegistrarPropiedad = ({ cuenta }) => {
     };
 
     return (
-        <div>
+        <div className="registro-contenedor">
             <h2>Registrar Propiedad</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
+            <form onSubmit={handleSubmit} className="formulario-propiedad">
+                <div className="campo">
                     <label>Descripción:</label>
                     <input
                         type="text"
@@ -51,7 +51,7 @@ const RegistrarPropiedad = ({ cuenta }) => {
                         required
                     />
                 </div>
-                <div>
+                <div className="campo">
                     <label>Precio (en ETH):</label>
                     <input
                         type="number"
@@ -64,7 +64,7 @@ const RegistrarPropiedad = ({ cuenta }) => {
                     {cargando ? 'Registrando...' : 'Registrar'}
                 </button>
             </form>
-            {mensaje && <p>{mensaje}</p>}
+            {mensaje && <p className="mensaje">{mensaje}</p>}
         </div>
     );
 };

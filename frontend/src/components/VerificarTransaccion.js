@@ -1,9 +1,10 @@
 ﻿import React, { useState } from "react";
 import axios from "axios";
+import "./VerificarTransaccion.css"; // ⬅️ Archivo CSS externo
 
 const VerificarTransaccion = () => {
     const [solicitudId, setSolicitudId] = useState("");
-    const [notario, setNotario] = useState(""); // Nuevo campo para la dirección del notario
+    const [notario, setNotario] = useState("");
     const [mensaje, setMensaje] = useState("");
     const [error, setError] = useState("");
 
@@ -27,13 +28,10 @@ const VerificarTransaccion = () => {
             setSolicitudId("");
             setNotario("");
 
-            // Obtener los saldos del comprador y del vendedor
             const saldoComprador = await axios.get(`http://localhost:3001/saldos/${solicitudId}/comprador`);
             const saldoVendedor = await axios.get(`http://localhost:3001/saldos/${solicitudId}/vendedor`);
 
-            // Mostrar los saldos en una ventana emergente
             alert(`💰 Saldos después de la transacción:\n\n👤 Comprador: ${saldoComprador.data.saldo} ETH\n🏠 Vendedor: ${saldoVendedor.data.saldo} ETH`);
-
         } catch (error) {
             console.error("❌ Error al verificar la transacción:", error.response?.data || error.message);
             setError(error.response?.data?.error || "❌ Ocurrió un error al verificar la transacción.");
@@ -41,9 +39,9 @@ const VerificarTransaccion = () => {
     };
 
     return (
-        <div>
+        <div className="verificar-container">
             <h2>🔍 Verificar Transacción</h2>
-            <form onSubmit={manejarVerificacion}>
+            <form onSubmit={manejarVerificacion} className="verificar-form">
                 <input
                     type="number"
                     placeholder="ID de la Solicitud"
@@ -61,8 +59,8 @@ const VerificarTransaccion = () => {
                 <button type="submit">Verificar</button>
             </form>
 
-            {mensaje && <p style={{ color: "green" }}>{mensaje}</p>}
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {mensaje && <p className="mensaje exito">{mensaje}</p>}
+            {error && <p className="mensaje error">{error}</p>}
         </div>
     );
 };

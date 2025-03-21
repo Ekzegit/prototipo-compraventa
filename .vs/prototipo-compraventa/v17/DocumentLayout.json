@@ -3,12 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\Propiedad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\Propiedad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\Propiedad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\Propiedad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerPropiedad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\VerPropiedad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerPropiedad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\VerPropiedad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\NavBar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\NavBar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\NavBar.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\NavBar.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoSolicitudes.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\ListadoSolicitudes.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoSolicitudes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\ListadoSolicitudes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerificarTransaccion.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\VerificarTransaccion.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerificarTransaccion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\VerificarTransaccion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\AceptarSolicitud.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\AceptarSolicitud.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\RegistrarPropiedad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\RegistrarPropiedad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\RegistrarPropiedad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\RegistrarPropiedad.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\AceptarSolicitud.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\AceptarSolicitud.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\SolicitudCompra.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\SolicitudCompra.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\SolicitudCompra.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\SolicitudCompra.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoPropiedades.css||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\ListadoPropiedades.css||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoPropiedades.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\ListadoPropiedades.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\contracts\\CompraventaInmobiliaria.sol||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -17,10 +81,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\NavBar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\NavBar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\services\\web3Service.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -35,16 +95,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\services\\blockchainService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\RegistrarPropiedad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\RegistrarPropiedad.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerificarTransaccion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:frontend\\src\\components\\VerificarTransaccion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -58,7 +110,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -71,14 +123,196 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Propiedad.css",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\Propiedad.css",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\Propiedad.css",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\Propiedad.css",
+              "RelativeToolTip": "frontend\\src\\components\\Propiedad.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-21T03:22:28.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Propiedad.js",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\Propiedad.js",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\Propiedad.js",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\Propiedad.js",
+              "RelativeToolTip": "frontend\\src\\components\\Propiedad.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-21T03:20:36.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VerPropiedad.css",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerPropiedad.css",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\VerPropiedad.css",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerPropiedad.css",
+              "RelativeToolTip": "frontend\\src\\components\\VerPropiedad.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-21T03:19:26.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VerPropiedad.js",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerPropiedad.js",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\VerPropiedad.js",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerPropiedad.js",
+              "RelativeToolTip": "frontend\\src\\components\\VerPropiedad.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-21T03:17:49.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ListadoSolicitudes.css",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoSolicitudes.css",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\ListadoSolicitudes.css",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoSolicitudes.css",
+              "RelativeToolTip": "frontend\\src\\components\\ListadoSolicitudes.css",
+              "ViewState": "AQIAABIAAAAAAAAAAAAQwEUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-21T02:52:22.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ListadoSolicitudes.js",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoSolicitudes.js",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\ListadoSolicitudes.js",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoSolicitudes.js",
+              "RelativeToolTip": "frontend\\src\\components\\ListadoSolicitudes.js",
+              "ViewState": "AQIAABMAAAAAAAAAAAAcwEUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-21T02:48:36.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VerificarTransaccion.css",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerificarTransaccion.css",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\VerificarTransaccion.css",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerificarTransaccion.css",
+              "RelativeToolTip": "frontend\\src\\components\\VerificarTransaccion.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAQwDMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-21T02:47:14.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AceptarSolicitud.css",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\AceptarSolicitud.css",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\AceptarSolicitud.css",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\AceptarSolicitud.css",
+              "RelativeToolTip": "frontend\\src\\components\\AceptarSolicitud.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-21T02:39:20.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AceptarSolicitud.js",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\AceptarSolicitud.js",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\AceptarSolicitud.js",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\AceptarSolicitud.js",
+              "RelativeToolTip": "frontend\\src\\components\\AceptarSolicitud.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-21T02:35:43.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SolicitudCompra.css",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\SolicitudCompra.css",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\SolicitudCompra.css",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\SolicitudCompra.css",
+              "RelativeToolTip": "frontend\\src\\components\\SolicitudCompra.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-21T02:32:37.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RegistrarPropiedad.css",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\RegistrarPropiedad.css",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\RegistrarPropiedad.css",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\RegistrarPropiedad.css",
+              "RelativeToolTip": "frontend\\src\\components\\RegistrarPropiedad.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-21T02:28:47.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ListadoPropiedades.css",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoPropiedades.css",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\ListadoPropiedades.css",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoPropiedades.css",
+              "RelativeToolTip": "frontend\\src\\components\\ListadoPropiedades.css",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAwEUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-21T02:23:23.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ListadoPropiedades.js",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoPropiedades.js",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\ListadoPropiedades.js",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\ListadoPropiedades.js",
+              "RelativeToolTip": "frontend\\src\\components\\ListadoPropiedades.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-21T02:20:47.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "SolicitudCompra.js",
               "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\SolicitudCompra.js",
               "RelativeDocumentMoniker": "frontend\\src\\components\\SolicitudCompra.js",
               "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\SolicitudCompra.js",
               "RelativeToolTip": "frontend\\src\\components\\SolicitudCompra.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAYwFQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-03-19T11:33:46.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NavBar.js",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\NavBar.js",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\NavBar.js",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\NavBar.js",
+              "RelativeToolTip": "frontend\\src\\components\\NavBar.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-17T22:23:27.244Z",
               "EditorCaption": ""
             },
             {
@@ -89,53 +323,27 @@
               "RelativeDocumentMoniker": "frontend\\src\\components\\NavBar.css",
               "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\NavBar.css",
               "RelativeToolTip": "frontend\\src\\components\\NavBar.css",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAkwDgAAAAAAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAQwFYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-03-17T22:25:37.473Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "NavBar.js",
-              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\NavBar.js",
-              "RelativeDocumentMoniker": "frontend\\src\\components\\NavBar.js",
-              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\NavBar.js",
-              "RelativeToolTip": "frontend\\src\\components\\NavBar.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-17T22:23:27.244Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CompraventaInmobiliaria.sol",
-              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\contracts\\CompraventaInmobiliaria.sol",
-              "RelativeDocumentMoniker": "contracts\\CompraventaInmobiliaria.sol",
-              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\contracts\\CompraventaInmobiliaria.sol",
-              "RelativeToolTip": "contracts\\CompraventaInmobiliaria.sol",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAGsAAABQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-17T00:14:27.282Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "RegistrarPropiedad.js",
               "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\RegistrarPropiedad.js",
               "RelativeDocumentMoniker": "frontend\\src\\components\\RegistrarPropiedad.js",
               "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\RegistrarPropiedad.js",
               "RelativeToolTip": "frontend\\src\\components\\RegistrarPropiedad.js",
-              "ViewState": "AQIAABcAAAAAAAAAAAAYwEgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-03-16T23:52:33.635Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 19,
               "Title": "App.js",
               "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\App.js",
               "RelativeDocumentMoniker": "frontend\\src\\App.js",
@@ -143,12 +351,36 @@
               "RelativeToolTip": "frontend\\src\\App.js",
               "ViewState": "AQIAABcAAAAAAAAAAAAwwEIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-16T22:20:06.734Z",
+              "WhenOpened": "2025-03-16T22:20:06.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "VerificarTransaccion.js",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerificarTransaccion.js",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\VerificarTransaccion.js",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerificarTransaccion.js",
+              "RelativeToolTip": "frontend\\src\\components\\VerificarTransaccion.js",
+              "ViewState": "AQIAABIAAAAAAAAAAAAcwEQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-16T20:59:38.276Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 18,
+              "Title": "CompraventaInmobiliaria.sol",
+              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\contracts\\CompraventaInmobiliaria.sol",
+              "RelativeDocumentMoniker": "contracts\\CompraventaInmobiliaria.sol",
+              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\contracts\\CompraventaInmobiliaria.sol",
+              "RelativeToolTip": "contracts\\CompraventaInmobiliaria.sol",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAGsAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-17T00:14:27.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "Login.js",
               "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\Login.js",
               "RelativeDocumentMoniker": "frontend\\src\\components\\Login.js",
@@ -156,12 +388,11 @@
               "RelativeToolTip": "frontend\\src\\components\\Login.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-16T22:18:24.419Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T22:18:24.419Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 20,
               "Title": "web3Service.js",
               "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\services\\web3Service.js",
               "RelativeDocumentMoniker": "frontend\\src\\services\\web3Service.js",
@@ -169,12 +400,11 @@
               "RelativeToolTip": "frontend\\src\\services\\web3Service.js",
               "ViewState": "AQIAACsAAAAAAAAAAAAuwFYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-16T22:16:27.928Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T22:16:27.928Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 24,
               "Title": "index.js",
               "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\index.js",
               "RelativeDocumentMoniker": "backend\\index.js",
@@ -186,7 +416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 23,
               "Title": ".env",
               "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\backend\\.env",
               "RelativeDocumentMoniker": "backend\\.env",
@@ -194,24 +424,11 @@
               "RelativeToolTip": "backend\\.env",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-16T21:14:21.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T21:14:21.374Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "VerificarTransaccion.js",
-              "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerificarTransaccion.js",
-              "RelativeDocumentMoniker": "frontend\\src\\components\\VerificarTransaccion.js",
-              "ToolTip": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\components\\VerificarTransaccion.js",
-              "RelativeToolTip": "frontend\\src\\components\\VerificarTransaccion.js",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAYwB8AAABqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-16T20:59:38.276Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 22,
               "Title": "blockchainService.js",
               "DocumentMoniker": "C:\\Users\\exeac\\source\\repos\\prototipo-compraventa\\frontend\\src\\services\\blockchainService.js",
               "RelativeDocumentMoniker": "frontend\\src\\services\\blockchainService.js",
@@ -219,8 +436,7 @@
               "RelativeToolTip": "frontend\\src\\services\\blockchainService.js",
               "ViewState": "AQIAACwAAAAAAAAAAAAcwF0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-03-16T20:17:48.235Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T20:17:48.235Z"
             }
           ]
         }

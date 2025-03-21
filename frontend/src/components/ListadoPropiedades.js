@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { obtenerPropiedades } from "../services/api";
 import { Link } from "react-router-dom";
+import "./ListadoPropiedades.css"; // Nuevo archivo de estilos
 
 export default function ListadoPropiedades() {
     const [propiedades, setPropiedades] = useState([]);
@@ -21,23 +22,29 @@ export default function ListadoPropiedades() {
         cargarPropiedades();
     }, []);
 
-    if (loading) return <p>Cargando propiedades...</p>;
+    if (loading) return <p className="loading">Cargando propiedades...</p>;
 
     return (
-        <div>
-            <h1>Listado de Propiedades</h1>
-            <button onClick={() => window.location.reload()}>Actualizar</button>
-            <ul>
+        <div className="listado-container">
+            <div className="header">
+                <h1>🏠 Listado de Propiedades</h1>
+                <button className="btn-recargar" onClick={() => window.location.reload()}>
+                    🔄 Actualizar
+                </button>
+            </div>
+
+            <div className="tarjetas-container">
                 {propiedades.map((propiedad) => (
-                    <li key={propiedad.id}>
-                        <strong>ID: {propiedad.id} - </strong>
-                        <Link to={`/propiedades/${propiedad.id}`}>
-                            {propiedad.nombre}
-                        </Link> - {propiedad.precio} -
-                        <i> {propiedad.estado === "Vendida" ? "Vendida" : "Disponible"}</i>
-                    </li>
+                    <div key={propiedad.id} className="tarjeta-propiedad">
+                        <h3>ID: {propiedad.id}</h3>
+                        <p><strong>Descripción:</strong> <Link to={`/propiedades/${propiedad.id}`}>{propiedad.nombre}</Link></p>
+                        <p><strong>Precio:</strong> {propiedad.precio} ETH</p>
+                        <p className={`estado ${propiedad.estado === "Vendida" ? "vendida" : "disponible"}`}>
+                            {propiedad.estado}
+                        </p>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 }

@@ -1,10 +1,11 @@
 ﻿import React, { useState } from "react";
 import axios from "axios";
+import "./SolicitudCompra.css"; // ✅ Importar el archivo CSS
 
 const SolicitudCompra = () => {
     const [propiedadId, setPropiedadId] = useState("");
     const [comprador, setComprador] = useState("");
-    const [oferta, setOferta] = useState(""); // Oferta en ETH
+    const [oferta, setOferta] = useState("");
     const [mensaje, setMensaje] = useState("");
     const [error, setError] = useState("");
 
@@ -18,60 +19,38 @@ const SolicitudCompra = () => {
             return;
         }
 
-        let ofertaWei;
         try {
-            // ✅ Convertir a número flotante antes de cualquier operación
             const ofertaNumero = parseFloat(oferta);
-
             if (isNaN(ofertaNumero) || ofertaNumero <= 0) {
                 setError("⚠️ La oferta debe ser un número mayor a 0.");
                 return;
             }
 
-            // ✅ Convertir a Wei SOLO si aún no está en Wei
-            if (!oferta.includes("000000000000000000")) {
-                ofertaWei = window.web3.utils.toWei(ofertaNumero.toString(), "ether");
-            } else {
-                ofertaWei = ofertaNumero.toString(); // Ya está en Wei
-            }
+            const ofertaWei = oferta.includes("000000000000000000")
+                ? ofertaNumero.toString()
+                : window.web3.utils.toWei(ofertaNumero.toString(), "ether");
 
-            console.log("📌 Oferta ingresada en ETH:", oferta);
-            console.log("📌 Oferta convertida a Wei:", ofertaWei);
+            const datosSolicitud = {
+                propiedadId: Number(propiedadId),
+                comprador,
+                oferta: ofertaWei
+            };
 
-        } catch (err) {
-            console.error("❌ Error en la conversión de ETH a Wei:", err);
-            setError("❌ Error al convertir la oferta a Wei.");
-            return;
-        }
-
-        const datosSolicitud = {
-            propiedadId: Number(propiedadId),
-            comprador,
-            oferta: ofertaWei // ✅ Enviar oferta en Wei correctamente
-        };
-
-        console.log("📌 Datos enviados al backend:", datosSolicitud);
-
-        try {
             const respuesta = await axios.post("http://localhost:3001/solicitudes", datosSolicitud);
             setMensaje(`✅ Solicitud enviada con éxito: ${respuesta.data.mensaje}`);
             setPropiedadId("");
             setComprador("");
             setOferta("");
-        } catch (error) {
-            console.error("❌ Error al enviar la solicitud:", error.response?.data || error.message);
-            setError("❌ Ocurrió un error al realizar la solicitud. Inténtalo de nuevo.");
+        } catch (err) {
+            console.error("❌ Error al enviar la solicitud:", err);
+            setError("❌ Ocurrió un error al realizar la solicitud.");
         }
     };
 
-
-
-
-
     return (
-        <div>
+        <div className="solicitud-container">
             <h2>Solicitar Compra de Propiedad</h2>
-            <form onSubmit={manejarEnvio}>
+            <form onSubmit={manejarEnvio} className="solicitud-form">
                 <input
                     type="number"
                     placeholder="ID de la propiedad"
@@ -96,8 +75,8 @@ const SolicitudCompra = () => {
                 <button type="submit">Solicitar Compra</button>
             </form>
 
-            {mensaje && <p style={{ color: "green" }}>{mensaje}</p>}
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {mensaje && <p className="mensaje">{mensaje}</p>}
+            {error && <p className="error">{error}</p>}
         </div>
     );
 };

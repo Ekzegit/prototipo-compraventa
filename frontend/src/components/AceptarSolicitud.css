@@ -1,0 +1,44 @@
+.aceptar-solicitud {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fefefe;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .aceptar-solicitud h2 {
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+    }
+
+.formulario-solicitud input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.formulario-solicitud button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+    .formulario-solicitud button:hover {
+        background-color: #45a049;
+    }
+
+.mensaje {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}

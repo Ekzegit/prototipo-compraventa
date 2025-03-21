@@ -1,0 +1,36 @@
+.propiedad-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.propiedad-titulo {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.propiedad-detalles {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.mensaje-cargando {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+
+.mensaje-error {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}

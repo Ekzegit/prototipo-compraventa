@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { obtenerPropiedad } from '../services/blockchainService';
+import './VerPropiedad.css';
 
 const VerPropiedad = () => {
     const [id, setId] = useState('');
@@ -13,15 +14,15 @@ const VerPropiedad = () => {
             setPropiedad(data);
             setError('');
         } catch (err) {
-            setError('Error al obtener la propiedad.');
+            setError('❌ Error al obtener la propiedad.');
             setPropiedad(null);
         }
     };
 
     return (
-        <div>
-            <h2>Ver Propiedad</h2>
-            <form onSubmit={handleSubmit}>
+        <div className="ver-propiedad-container">
+            <h2>🔍 Ver Propiedad</h2>
+            <form onSubmit={handleSubmit} className="ver-propiedad-form">
                 <label>ID de la Propiedad:</label>
                 <input
                     type="number"
@@ -31,14 +32,16 @@ const VerPropiedad = () => {
                 />
                 <button type="submit">Buscar</button>
             </form>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+
+            {error && <p className="mensaje-error">{error}</p>}
+
             {propiedad && (
-                <div>
-                    <h3>Detalles de la Propiedad</h3>
+                <div className="detalle-propiedad">
+                    <h3>📋 Detalles de la Propiedad</h3>
                     <p><strong>ID:</strong> {propiedad.id}</p>
-                    <p><strong>Descripcion:</strong> {propiedad.descripcion}</p>
+                    <p><strong>Descripción:</strong> {propiedad.descripcion}</p>
                     <p><strong>Propietario:</strong> {propiedad.propietario}</p>
-                    <p><strong>En Venta:</strong> {propiedad.enVenta ? 'Si' : 'No'}</p>
+                    <p><strong>En Venta:</strong> {propiedad.enVenta ? 'Sí' : 'No'}</p>
                     <p><strong>Precio:</strong> {parseFloat(propiedad.precio) / 1e18} ETH</p>
                 </div>
             )}

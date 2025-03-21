@@ -1,12 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\build\\contracts",
     "\\contracts",
     "\\frontend",
     "\\frontend\\src",
     "\\frontend\\src\\components"
   ],
-  "SelectedNode": "\\frontend\\src\\components\\NavBar.js",
+  "SelectedNode": "\\frontend\\src\\components\\Propiedad.js",
   "PreviewInSolutionExplorer": false
 }
