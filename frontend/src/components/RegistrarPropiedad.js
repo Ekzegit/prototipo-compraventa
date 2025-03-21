@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { registrarPropiedad } from '../services/blockchainService';
 
-const RegistrarPropiedad = () => {
+const RegistrarPropiedad = ({ cuenta }) => {
     const [descripcion, setDescripcion] = useState('');
     const [precio, setPrecio] = useState('');
     const [mensaje, setMensaje] = useState('');
-    const [cargando, setCargando] = useState(false); // Estado para manejar la carga
+    const [cargando, setCargando] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Validaciones
+        if (!cuenta) {
+            setMensaje('⚠️ Debes conectar MetaMask antes de registrar una propiedad.');
+            return;
+        }
         if (!descripcion.trim()) {
             setMensaje('⚠️ La descripción no puede estar vacía.');
             return;
@@ -22,7 +26,7 @@ const RegistrarPropiedad = () => {
 
         try {
             setCargando(true);
-            await registrarPropiedad(descripcion, precio);
+            await registrarPropiedad(descripcion, precio, cuenta); // ✅ Pasar la cuenta del usuario
             setMensaje('✅ Propiedad registrada exitosamente.');
             setDescripcion('');
             setPrecio('');

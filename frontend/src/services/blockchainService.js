@@ -1,36 +1,37 @@
 ﻿import { Web3 } from "web3"; // Web3 v4 usa importación con llaves
 import contratoABI from "../contracts/CompraventaInmobiliaria.json"; // Verifica que la ruta es correcta
 
-const CONTRACT_ADDRESS = "0xF12b5dd4EAD5F743C6BaA640B0216200e89B60Da"; // Reemplaza con la dirección real
+// Tomar la dirección del contrato desde `.env` o usar la que estaba hardcodeada
+const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS || "0xF12b5dd4EAD5F743C6BaA640B0216200e89B60Da";
 
-// Conectar a Ganache localmente
-const web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+// ✅ Conectar a MetaMask si está disponible, de lo contrario usar Ganache
+const web3 = new Web3(window.ethereum || new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
 
-// Crear la instancia del contrato inteligente
+// ✅ Crear la instancia del contrato inteligente
 const contrato = new web3.eth.Contract(contratoABI.abi, CONTRACT_ADDRESS);
 
-// Exponer Web3 y el contrato en el objeto `window` para depuración en la consola del navegador
+// ✅ Exponer Web3 y el contrato en el objeto `window` para depuración
 window.web3 = web3;
 window.contrato = contrato;
 
 console.log("✅ Web3 conectado a:", web3.currentProvider.host);
 console.log("✅ Contrato desplegado en:", CONTRACT_ADDRESS);
 
-export const registrarPropiedad = async (descripcion, precio) => {
+// ✅ Registrar propiedad usando la cuenta conectada en MetaMask
+export const registrarPropiedad = async (descripcion, precio, cuenta) => {
     try {
-        const accounts = await web3.eth.getAccounts();
-        console.log("📌 Usando cuenta:", accounts[0]);
+        if (!cuenta) throw new Error("❌ No hay cuenta conectada a MetaMask.");
 
         // Convertir el precio de ETH a Wei
         const precioEnWei = web3.utils.toWei(precio, "ether");
-        console.log("💰 Precio en Wei:", precioEnWei);
+        console.log("💰 Registrando propiedad con cuenta:", cuenta);
 
         // Obtener gasPrice dinámicamente
         const gasPrice = await web3.eth.getGasPrice();
 
         // Enviar transacción con valores adecuados
         const tx = await contrato.methods.registrarPropiedad(descripcion, precioEnWei).send({
-            from: accounts[0],
+            from: cuenta,
             gas: 3000000,
             gasPrice: gasPrice,
         });
@@ -43,6 +44,7 @@ export const registrarPropiedad = async (descripcion, precio) => {
     }
 };
 
+// ✅ Obtener solicitudes de compra
 export const obtenerSolicitudes = async () => {
     try {
         const totalSolicitudes = await contrato.methods.contadorSolicitudes().call();
@@ -67,13 +69,14 @@ export const obtenerSolicitudes = async () => {
     }
 };
 
+// ✅ Verificar una transacción
 export const verificarTransaccion = async (solicitudId) => {
     try {
-        const accounts = await web3.eth.getAccounts();
-        console.log("Usando cuenta del notario:", accounts[0]);
+        const cuentas = await web3.eth.getAccounts();
+        console.log("Usando cuenta del notario:", cuentas[0]);
 
         const tx = await contrato.methods.verificarTransaccion(solicitudId).send({
-            from: accounts[0],
+            from: cuentas[0],
             gas: 3000000,
             gasPrice: await web3.eth.getGasPrice(),
         });
@@ -86,11 +89,5 @@ export const verificarTransaccion = async (solicitudId) => {
     }
 };
 
-
-
 // Exportar Web3 y el contrato para otros módulos
 export { web3, contrato };
-
-
-
-

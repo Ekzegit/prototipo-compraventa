@@ -1,14 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backend",
-    "\\build",
     "\\build\\contracts",
+    "\\contracts",
     "\\frontend",
     "\\frontend\\src",
-    "\\frontend\\src\\contracts",
-    "\\frontend\\src\\services"
+    "\\frontend\\src\\components"
   ],
-  "SelectedNode": "\\backend\\.env",
+  "SelectedNode": "\\frontend\\src\\components\\NavBar.js",
   "PreviewInSolutionExplorer": false
 }
