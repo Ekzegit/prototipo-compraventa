@@ -122,8 +122,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 14,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -134,8 +142,7 @@
               "RelativeToolTip": "frontend\\src\\components\\ListadoSolicitudes.js",
               "ViewState": "AQIAADwAAAAAAAAAAAAIwFMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-21T00:19:24.772Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T00:19:24.772Z"
             },
             {
               "$type": "Document",
@@ -147,8 +154,7 @@
               "RelativeToolTip": "frontend\\src\\components\\SolicitudCompra.css",
               "ViewState": "AQIAACkAAAAAAAAAAAAAAEAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-20T23:42:31.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T23:42:31.372Z"
             },
             {
               "$type": "Document",
@@ -160,8 +166,7 @@
               "RelativeToolTip": "frontend\\src\\components\\SolicitudCompra.js",
               "ViewState": "AQIAAGUAAAAAAAAAAAAIwHwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-20T23:10:47.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T23:10:47.012Z"
             },
             {
               "$type": "Document",
@@ -173,8 +178,7 @@
               "RelativeToolTip": "frontend\\src\\components\\Propiedad.css",
               "ViewState": "AQIAAGAAAAAAAAAAAAAuwHkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-20T20:43:01.909Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T20:43:01.909Z"
             },
             {
               "$type": "Document",
@@ -186,8 +190,7 @@
               "RelativeToolTip": "frontend\\src\\index.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-20T20:40:13.412Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T20:40:13.412Z"
             },
             {
               "$type": "Document",
@@ -199,8 +202,7 @@
               "RelativeToolTip": "frontend\\src\\index.css",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-20T20:39:51.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T20:39:51.882Z"
             },
             {
               "$type": "Document",
@@ -212,8 +214,7 @@
               "RelativeToolTip": "frontend\\src\\App.js",
               "ViewState": "AQIAAC8AAAAAAAAAAAAAwCYAAABOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-20T20:39:25.643Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T20:39:25.643Z"
             },
             {
               "$type": "Document",
@@ -225,8 +226,7 @@
               "RelativeToolTip": "frontend\\src\\components\\Propiedad.js",
               "ViewState": "AQIAADYAAAAAAAAAAAAIwE0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-20T20:36:32.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T20:36:32.33Z"
             },
             {
               "$type": "Document",
@@ -238,8 +238,7 @@
               "RelativeToolTip": "backend\\data\\imagenes.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-20T20:35:38.413Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T20:35:38.413Z"
             },
             {
               "$type": "Document",
@@ -251,8 +250,7 @@
               "RelativeToolTip": "backend\\controllers\\propiedadController.js",
               "ViewState": "AQIAAIUAAAAAAAAAAAAUwJwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-20T19:45:19.834Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-20T19:45:19.834Z"
             },
             {
               "$type": "Document",
@@ -264,8 +262,7 @@
               "RelativeToolTip": "frontend\\src\\components\\ListadoPropiedades.js",
               "ViewState": "AQIAADkAAAAAAAAAAAAAAEgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-19T15:40:17.128Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-19T15:40:17.128Z"
             },
             {
               "$type": "Document",
@@ -277,8 +274,7 @@
               "RelativeToolTip": "backend\\routes\\solicitudRoutes.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAUwA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-16T02:48:53.547Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T02:48:53.547Z"
             },
             {
               "$type": "Document",
@@ -303,8 +299,7 @@
               "RelativeToolTip": "frontend\\src\\components\\RegistrarPropiedad.js",
               "ViewState": "AQIAAE8AAAAAAAAAAAAQwGYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-19T03:11:27.752Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-19T03:11:27.752Z"
             },
             {
               "$type": "Document",
@@ -316,8 +311,7 @@
               "RelativeToolTip": "frontend\\src\\components\\ListadoPropiedades.css",
               "ViewState": "AQIAADUAAAAAAAAAAAAQwE4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-19T15:41:17.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-19T15:41:17.47Z"
             },
             {
               "$type": "Document",
@@ -329,8 +323,7 @@
               "RelativeToolTip": "frontend\\src\\components\\ListadoSolicitudes.css",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-19T15:41:14.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-19T15:41:14.099Z"
             },
             {
               "$type": "Document",
@@ -342,8 +335,7 @@
               "RelativeToolTip": "frontend\\src\\components\\NavBar.js",
               "ViewState": "AQIAAAsAAAAAAAAAAAAQwBIAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-19T15:33:04.474Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-19T15:33:04.474Z"
             },
             {
               "$type": "Document",
@@ -355,8 +347,7 @@
               "RelativeToolTip": "backend\\index.js",
               "ViewState": "AQIAAFkAAAAAAAAAAAAQwHAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-19T03:18:28.627Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-19T03:18:28.627Z"
             },
             {
               "$type": "Document",
@@ -368,16 +359,7 @@
               "RelativeToolTip": "frontend\\src\\services\\api.js",
               "ViewState": "AQIAABgAAAAAAAAAAAAQwC8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-19T03:13:57.25Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "WhenOpened": "2025-04-19T03:13:57.25Z"
             },
             {
               "$type": "Document",
@@ -389,8 +371,7 @@
               "RelativeToolTip": "contracts\\RegistroPropiedades.sol",
               "ViewState": "AQIAADcAAAAAAAAAAAAQwFYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-04-19T02:49:54.636Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-19T02:49:54.636Z"
             },
             {
               "$type": "Document",
@@ -402,8 +383,7 @@
               "RelativeToolTip": "frontend\\src\\contracts\\RegistroPropiedades.json",
               "ViewState": "AQIAAKMgAAAAAAAAAAAgwMEgAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-19T02:49:09.454Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-19T02:49:09.454Z"
             },
             {
               "$type": "Document",
@@ -415,8 +395,7 @@
               "RelativeToolTip": "backend\\controllers\\registroController.js",
               "ViewState": "AQIAAFIAAAAAAAAAAAAIwGkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-16T04:26:28.015Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T04:26:28.015Z"
             },
             {
               "$type": "Document",
@@ -428,8 +407,7 @@
               "RelativeToolTip": "frontend\\package.json",
               "ViewState": "AQIAAAEAAAAAAAAAAEBVwBcAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-16T03:31:02.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T03:31:02.213Z"
             },
             {
               "$type": "Document",
@@ -441,8 +419,7 @@
               "RelativeToolTip": "frontend\\src\\services\\blockchainService.js",
               "ViewState": "AQIAAAwAAAAAAAAAAAAkwC0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-16T03:30:31.533Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T03:30:31.533Z"
             },
             {
               "$type": "Document",
@@ -454,8 +431,7 @@
               "RelativeToolTip": "sync-contracts.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-16T03:29:48.412Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T03:29:48.412Z"
             },
             {
               "$type": "Document",
@@ -467,8 +443,7 @@
               "RelativeToolTip": "migrations\\2_deploy_contracts.js",
               "ViewState": "AQIAACcAAAAAAAAAAAAkwEUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-16T03:24:43.524Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T03:24:43.524Z"
             },
             {
               "$type": "Document",
@@ -480,8 +455,7 @@
               "RelativeToolTip": "frontend\\src\\components\\VerificarTransaccion.js",
               "ViewState": "AQIAAC8AAAAAAAAAAAAkwE0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-16T02:59:48.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T02:59:48.432Z"
             },
             {
               "$type": "Document",
@@ -493,8 +467,7 @@
               "RelativeToolTip": "frontend\\src\\components\\AceptarSolicitud.js",
               "ViewState": "AQIAACQAAAAAAAAAAAAkwEIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-04-16T02:33:08.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T02:33:08.083Z"
             }
           ]
         }
