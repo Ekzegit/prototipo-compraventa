@@ -1,36 +1,121 @@
-.propiedad-container {
-    max-width: 600px;
+﻿.propiedad-container {
+    max-width: 1000px;
     margin: 40px auto;
-    padding: 25px;
+    padding: 30px;
     background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .propiedad-titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1a202c;
+    margin-bottom: 25px;
     text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #2c3e50;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+.propiedad-flex {
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+}
+
+.slider-propiedad {
+    flex: 1;
+    min-width: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.imagen-slider {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 .propiedad-detalles {
+    flex: 1;
+    background-color: #f7fafc;
+    padding: 20px 30px;
+    border-radius: 10px;
     font-size: 1.1rem;
-    line-height: 1.6;
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
+    line-height: 1.8;
+    color: #2d3748;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.03);
 }
 
-.mensaje-cargando {
+    .propiedad-detalles p {
+        margin: 12px 0;
+    }
+
+    .propiedad-detalles strong {
+        color: #1a202c;
+        font-weight: 600;
+    }
+
+.slick-prev:before,
+.slick-next:before {
+    color: #2d3748;
+    font-size: 30px;
+}
+
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #a0aec0;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #2d3748;
+}
+
+.mensaje-cargando,
+.mensaje-error {
     text-align: center;
     font-size: 18px;
-    color: #666;
+    margin-top: 30px;
 }
 
 .mensaje-error {
-    text-align: center;
-    color: red;
+    color: #e53e3e;
     font-weight: bold;
-    font-size: 18px;
+}
+
+/* ✅ Botón para solicitar compra */
+.btn-solicitar {
+    margin-top: 20px;
+    background-color: #3182ce;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+    .btn-solicitar:hover {
+        background-color: #2b6cb0;
+    }
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+    .propiedad-flex {
+        flex-direction: column;
+    }
+
+    .imagen-slider {
+        height: 250px;
+    }
+
+    .propiedad-detalles {
+        padding: 20px;
+    }
 }

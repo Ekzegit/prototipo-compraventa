@@ -1,25 +1,47 @@
 ﻿import React, { useState } from "react";
-import { web3, contrato } from "../services/blockchainService";
-import "./AceptarSolicitud.css"; // Importa el CSS externo
+import { web3 } from "../services/blockchainService";
+import contratoABI from "../contracts/CompraventaInmobiliaria.json";
+import "./AceptarSolicitud.css";
 
 const AceptarSolicitud = () => {
-    const [solicitudId, setSolicitudId] = useState("");
+    const [direccionContrato, setDireccionContrato] = useState("");
     const [mensaje, setMensaje] = useState("");
 
     const manejarEnvio = async (e) => {
         e.preventDefault();
+        setMensaje("");
+
         try {
+            if (!web3.utils.isAddress(direccionContrato)) {
+                setMensaje("❌ Dirección del contrato inválida.");
+                return;
+            }
+
             const accounts = await web3.eth.getAccounts();
-            await contrato.methods.aceptarSolicitud(solicitudId).send({
-                from: accounts[0],
+            const cuentaConectada = accounts[0];
+
+            const instanciaContrato = new web3.eth.Contract(contratoABI.abi, direccionContrato);
+
+            // Obtener la dirección del propietario desde el contrato
+            const propietario = await instanciaContrato.methods.propietario().call();
+
+            // Comparar con la cuenta conectada
+            if (cuentaConectada.toLowerCase() !== propietario.toLowerCase()) {
+                setMensaje("❌ Solo el propietario registrado puede aceptar la solicitud.");
+                return;
+            }
+
+            // Enviar la transacción
+            await instanciaContrato.methods.aceptarSolicitud().send({
+                from: cuentaConectada,
                 gas: 3000000,
                 gasPrice: web3.utils.toWei("20", "gwei"),
             });
 
             setMensaje("✅ Solicitud aceptada correctamente.");
         } catch (error) {
-            setMensaje("❌ Error al aceptar la solicitud.");
             console.error(error);
+            setMensaje("❌ Error al aceptar la solicitud.");
         }
     };
 
@@ -29,9 +51,9 @@ const AceptarSolicitud = () => {
             <form onSubmit={manejarEnvio} className="formulario-solicitud">
                 <input
                     type="text"
-                    placeholder="ID de la solicitud"
-                    value={solicitudId}
-                    onChange={(e) => setSolicitudId(e.target.value)}
+                    placeholder="Dirección del contrato"
+                    value={direccionContrato}
+                    onChange={(e) => setDireccionContrato(e.target.value)}
                     required
                 />
                 <button type="submit">Aceptar Solicitud</button>

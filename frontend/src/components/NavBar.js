@@ -17,9 +17,6 @@ const NavBar = ({ cuenta }) => {
                     <li className={location.pathname === "/registrar" ? "active" : ""}>
                         <Link to="/registrar">📝 Registrar</Link>
                     </li>
-                    <li className={location.pathname === "/SolicitudCompra" ? "active" : ""}>
-                        <Link to="/SolicitudCompra">📄 Solicitudes</Link>
-                    </li>
                     <li className={location.pathname === "/aceptar-solicitud" ? "active" : ""}>
                         <Link to="/aceptar-solicitud">✅ Aceptar</Link>
                     </li>
@@ -27,7 +24,7 @@ const NavBar = ({ cuenta }) => {
                         <Link to="/verificar-transaccion">🔍 Verificar</Link>
                     </li>
                     <li className={location.pathname === "/solicitudes" ? "active" : ""}>
-                        <Link to="/solicitudes">📋 Listado</Link>
+                        <Link to="/solicitudes">📬 Solicitudes Recibidas</Link>
                     </li>
                 </ul>
 

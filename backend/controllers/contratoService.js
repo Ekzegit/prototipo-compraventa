@@ -2,12 +2,10 @@
 const Web3 = require('web3').default;
 const web3 = new Web3('http://127.0.0.1:8545');
 
-// Ruta absoluta al archivo JSON de la compilación del contrato
-const contratoData = require(path.join(__dirname, '../../build/contracts/CompraventaInmobiliaria.json'));
+// ✅ Cargar el ABI del contrato principal: RegistroPropiedades
+const contratoData = require(path.join(__dirname, '../../build/contracts/RegistroPropiedades.json'));
 
-
-
-// Obtener el ID de la red
+// Obtener el ID de la red y la dirección desplegada
 const networkId = Object.keys(contratoData.networks)[0];
 
 if (!networkId || !contratoData.networks[networkId]?.address) {
@@ -21,5 +19,3 @@ console.log("✅ Contrato cargado en la dirección:", contratoDireccion);
 const contrato = new web3.eth.Contract(contratoData.abi, contratoDireccion);
 
 module.exports = { contrato, web3 };
-
-

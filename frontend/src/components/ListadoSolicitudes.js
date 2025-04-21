@@ -6,11 +6,25 @@ const ListadoSolicitudes = () => {
     const [solicitudes, setSolicitudes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const [cuenta, setCuenta] = useState("");
 
     useEffect(() => {
         const cargarSolicitudes = async () => {
             try {
-                const respuesta = await axios.get("http://localhost:3001/solicitudes");
+                // Obtener cuenta activa de MetaMask
+                const cuentas = await window.ethereum.request({ method: "eth_accounts" });
+                const cuentaActual = cuentas[0];
+
+                if (!cuentaActual) {
+                    setError("⚠️ No hay cuenta conectada en MetaMask.");
+                    setLoading(false);
+                    return;
+                }
+
+                setCuenta(cuentaActual);
+
+                // Consultar solicitudes filtradas por la cuenta
+                const respuesta = await axios.get(`http://localhost:3001/solicitudes?cuenta=${cuentaActual}`);
                 setSolicitudes(respuesta.data);
             } catch (error) {
                 console.error("❌ Error al obtener las solicitudes:", error);
@@ -39,7 +53,7 @@ const ListadoSolicitudes = () => {
 
     return (
         <div className="listado-solicitudes-container">
-            <h2>📄 Listado de Solicitudes de Compra</h2>
+            <h2>📄 Tus Solicitudes de Compra/Venta</h2>
             <table className="tabla-solicitudes">
                 <thead>
                     <tr>

@@ -1,9 +1,10 @@
 ﻿import React, { useState } from "react";
 import axios from "axios";
-import "./VerificarTransaccion.css"; // ⬅️ Archivo CSS externo
+import { web3 } from "../services/blockchainService"; // ⬅️ Asegúrate de importar web3 correctamente
+import "./VerificarTransaccion.css";
 
 const VerificarTransaccion = () => {
-    const [solicitudId, setSolicitudId] = useState("");
+    const [direccionContrato, setDireccionContrato] = useState("");
     const [notario, setNotario] = useState("");
     const [mensaje, setMensaje] = useState("");
     const [error, setError] = useState("");
@@ -13,23 +14,31 @@ const VerificarTransaccion = () => {
         setMensaje("");
         setError("");
 
-        if (!solicitudId || !notario) {
-            setError("⚠️ Debes ingresar el ID de la solicitud y la dirección del notario.");
+        if (!direccionContrato || !notario) {
+            setError("⚠️ Debes ingresar la dirección del contrato y la dirección del notario.");
             return;
         }
 
         try {
+            const cuentas = await web3.eth.getAccounts();
+            const cuentaConectada = cuentas[0];
+
+            if (cuentaConectada.toLowerCase() !== notario.toLowerCase()) {
+                setError("❌ Solo el notario puede realizar la verificación.");
+                return;
+            }
+
             const respuesta = await axios.post("http://localhost:3001/solicitudes/verificar", {
-                solicitudId,
+                direccionContrato,
                 notario
             });
 
             setMensaje(`✅ ${respuesta.data.mensaje}`);
-            setSolicitudId("");
+            setDireccionContrato("");
             setNotario("");
 
-            const saldoComprador = await axios.get(`http://localhost:3001/saldos/${solicitudId}/comprador`);
-            const saldoVendedor = await axios.get(`http://localhost:3001/saldos/${solicitudId}/vendedor`);
+            const saldoComprador = await axios.get(`http://localhost:3001/saldos/1/comprador`);
+            const saldoVendedor = await axios.get(`http://localhost:3001/saldos/1/vendedor`);
 
             alert(`💰 Saldos después de la transacción:\n\n👤 Comprador: ${saldoComprador.data.saldo} ETH\n🏠 Vendedor: ${saldoVendedor.data.saldo} ETH`);
         } catch (error) {
@@ -43,10 +52,10 @@ const VerificarTransaccion = () => {
             <h2>🔍 Verificar Transacción</h2>
             <form onSubmit={manejarVerificacion} className="verificar-form">
                 <input
-                    type="number"
-                    placeholder="ID de la Solicitud"
-                    value={solicitudId}
-                    onChange={(e) => setSolicitudId(e.target.value)}
+                    type="text"
+                    placeholder="Dirección del Contrato de la Propiedad"
+                    value={direccionContrato}
+                    onChange={(e) => setDireccionContrato(e.target.value)}
                     required
                 />
                 <input

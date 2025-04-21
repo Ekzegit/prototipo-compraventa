@@ -1,4 +1,4 @@
-.listado-container {
+﻿.listado-container {
 	max-width: 1200px;
 	margin: auto;
 	padding: 20px;
@@ -43,6 +43,15 @@
 	.tarjeta-propiedad:hover {
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 	}
+
+/* ✅ Estilo para imágenes de las propiedades */
+.imagen-propiedad {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+	border-radius: 8px;
+	margin-bottom: 12px;
+}
 
 .estado {
 	font-weight: bold;

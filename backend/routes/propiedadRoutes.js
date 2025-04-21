@@ -1,19 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const { registrarPropiedad, obtenerPropiedad, obtenerPropiedades, aceptarSolicitud } = require('../controllers/propiedadController');
+const {
+    registrarPropiedad,
+    obtenerPropiedades,
+    obtenerPropiedadPorDireccion
+} = require('../controllers/propiedadController');
 
-// Nueva ruta para obtener todas las propiedades
+// Obtener todas las propiedades
 router.get('/', obtenerPropiedades);
 
-// Ruta para registrar una propiedad
+// Registrar nueva propiedad
 router.post('/', registrarPropiedad);
 
-// Ruta para obtener una propiedad por ID
-router.get('/:id', obtenerPropiedad);
-
-// Ruta para aceptar una solicitud de compra
-router.post('/aceptarSolicitud', aceptarSolicitud);
+// Obtener una propiedad por su dirección
+router.get('/:direccion', obtenerPropiedadPorDireccion);
 
 module.exports = router;
+
+
 
 

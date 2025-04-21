@@ -46,7 +46,7 @@ function App() {
                     {cuenta && (
                         <>
                             <Route path="/propiedades" element={<ListadoPropiedades />} />
-                            <Route path="/propiedades/:id" element={<Propiedad />} />
+                            <Route path="/propiedades/:id" element={<Propiedad cuenta={cuenta} />} />
                             <Route path="/registrar" element={<RegistrarPropiedad cuenta={cuenta} />} />
                             <Route path="/SolicitudCompra" element={<SolicitudCompra />} />
                             <Route path="/aceptar-solicitud" element={<AceptarSolicitud />} />

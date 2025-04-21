@@ -2,118 +2,107 @@
 pragma solidity ^0.8.0;
 
 contract CompraventaInmobiliaria {
-    address public notario;
-    address public comprador;
-
     enum EstadoPropiedad { Disponible, EnProcesoDeVenta, Vendida }
 
-    struct Propiedad {
-        uint id;
-        address propietario;
-        string descripcion;
-        uint precio;
-        EstadoPropiedad estado;
-    }
+    uint public id; // ID de la propiedad (opcional si lo manejas desde el registro)
+    address public propietario;
+    address public notario;
+    string public descripcion;
+    uint public precio;
+    EstadoPropiedad public estado;
 
-    struct SolicitudCompraventa {
-        uint propiedadId;
-        address comprador;
-        uint oferta;
-        bool aceptada;
-        bool verificada;
-    }
+    address public comprador;
+    uint public oferta;
+    bool public aceptada;
+    bool public verificada;
 
-    mapping(uint => Propiedad) public propiedades;
-    mapping(uint => SolicitudCompraventa) public solicitudes;
-
-    uint public contadorPropiedades;
-    uint public contadorSolicitudes;
-
-    modifier soloPropietario(uint _propiedadId) {
-        require(msg.sender == propiedades[_propiedadId].propietario, "No eres el propietario.");
+    modifier soloPropietario() {
+        require(msg.sender == propietario, "No eres el propietario.");
         _;
     }
 
     modifier soloNotario() {
-        require(msg.sender == notario, "Solo el notario puede realizar esta accion.");
+        require(msg.sender == notario, "Solo el notario puede verificar la transaccion.");
         _;
     }
 
     modifier soloComprador() {
-        require(msg.sender == comprador, "Solo el comprador puede realizar esta accion.");
+        require(msg.sender == comprador, "Solo el comprador puede continuar.");
         _;
     }
 
-    constructor(address _notario) {
-        require(_notario != msg.sender, "El notario no puede ser el propietario");
+    constructor(
+        address _propietario,
+        address _notario,
+        string memory _descripcion,
+        uint _precio
+    ) {
+        require(_propietario != address(0), "Propietario invalido.");
+        require(_notario != address(0), "Notario invalido.");
+        require(_propietario != _notario, "Notario no puede ser propietario.");
+        require(_precio > 0, "Precio debe ser mayor a cero.");
+
+        propietario = _propietario;
         notario = _notario;
+        descripcion = _descripcion;
+        precio = _precio;
+        estado = EstadoPropiedad.Disponible;
     }
 
-    function registrarPropiedad(string memory _descripcion, uint _precio) public {
-        require(msg.sender != notario, "El notario no puede registrar propiedades.");
-        require(_precio > 0, "El precio debe ser mayor a 0.");
-        
-        contadorPropiedades++;
-        propiedades[contadorPropiedades] = Propiedad(
-            contadorPropiedades,
-            msg.sender,
-            _descripcion,
-            _precio,
-            EstadoPropiedad.Disponible
-        );
-    }
+    function solicitarCompra() public payable {
+        require(estado == EstadoPropiedad.Disponible, "Propiedad no disponible.");
+        require(msg.sender != propietario && msg.sender != notario, "No autorizado.");
+        require(msg.value == precio, "Monto enviado incorrecto.");
 
-    function getTotalPropiedades() public view returns (uint) {
-        return contadorPropiedades;
-    }
-
-    function getTotalSolicitudes() public view returns (uint) {
-    return contadorSolicitudes;
-}
-
-
-    function solicitarCompraventa(uint _propiedadId) public payable {
-        Propiedad storage propiedad = propiedades[_propiedadId];
-        require(propiedad.estado == EstadoPropiedad.Disponible, "La propiedad no esta disponible.");
-        require(msg.sender != propiedad.propietario, "El propietario no puede comprar su propia propiedad.");
-        require(msg.sender != notario, "El notario no puede comprar propiedades.");
-        require(msg.value == propiedad.precio, "El valor enviado no coincide con el precio de la propiedad.");
-
-        contadorSolicitudes++;
-        solicitudes[contadorSolicitudes] = SolicitudCompraventa(_propiedadId, msg.sender, msg.value, false, false);
         comprador = msg.sender;
-
-        propiedad.estado = EstadoPropiedad.EnProcesoDeVenta;
+        oferta = msg.value;
+        estado = EstadoPropiedad.EnProcesoDeVenta;
     }
 
-    function aceptarSolicitud(uint _solicitudId) public soloPropietario(solicitudes[_solicitudId].propiedadId) {
-        SolicitudCompraventa storage solicitud = solicitudes[_solicitudId];
-        require(!solicitud.aceptada, "La solicitud ya ha sido aceptada.");
+    function aceptarSolicitud() public soloPropietario {
+        require(estado == EstadoPropiedad.EnProcesoDeVenta, "No hay solicitud activa.");
+        require(!aceptada, "Ya fue aceptada.");
 
-        solicitud.aceptada = true;
+        aceptada = true;
     }
 
-    function rechazarSolicitud(uint _solicitudId) public soloPropietario(solicitudes[_solicitudId].propiedadId) {
-        SolicitudCompraventa storage solicitud = solicitudes[_solicitudId];
-        require(!solicitud.aceptada, "No se puede rechazar una solicitud ya aceptada.");
+    function rechazarSolicitud() public soloPropietario {
+        require(estado == EstadoPropiedad.EnProcesoDeVenta, "No hay solicitud en proceso.");
+        require(!aceptada, "No se puede rechazar una solicitud aceptada.");
 
-        propiedades[solicitud.propiedadId].estado = EstadoPropiedad.Disponible;
-        payable(solicitud.comprador).transfer(solicitud.oferta);
-        delete solicitudes[_solicitudId];
+        payable(comprador).transfer(oferta);
+
+        comprador = address(0);
+        oferta = 0;
+        estado = EstadoPropiedad.Disponible;
     }
 
-    function verificarTransaccion(uint _solicitudId) public soloNotario {
-        SolicitudCompraventa storage solicitud = solicitudes[_solicitudId];
-        require(solicitud.aceptada, "La solicitud no ha sido aceptada.");
-        require(!solicitud.verificada, "La transaccion ya ha sido verificada.");
+    function verificarTransaccion() public soloNotario {
+        require(aceptada, "Solicitud no aceptada.");
+        require(!verificada, "Ya verificada.");
 
-        solicitud.verificada = true;
-        Propiedad storage propiedad = propiedades[solicitud.propiedadId];
+        verificada = true;
+        estado = EstadoPropiedad.Vendida;
 
-        address propietarioAnterior = propiedad.propietario;
-        propiedad.propietario = solicitud.comprador;
-        propiedad.estado = EstadoPropiedad.Vendida;
+        address anteriorPropietario = propietario;
+        propietario = comprador;
 
-        payable(propietarioAnterior).transfer(solicitud.oferta);
+        payable(anteriorPropietario).transfer(oferta);
+    }
+
+    function getResumen() public view returns (
+        address, address, string memory, uint, EstadoPropiedad, address, uint, bool, bool
+    ) {
+        return (
+            propietario,
+            notario,
+            descripcion,
+            precio,
+            estado,
+            comprador,
+            oferta,
+            aceptada,
+            verificada
+        );
     }
 }

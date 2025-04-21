@@ -2,52 +2,85 @@ require('dotenv').config(); // Cargar variables de entorno
 const express = require('express');
 const cors = require('cors');
 const Web3 = require('web3').default;
+const multer = require('multer'); // 🆕 Para manejar archivos
+const path = require('path');
+const fs = require('fs');
+
 const propiedadRoutes = require('./routes/propiedadRoutes');
 const solicitudRoutes = require('./routes/solicitudRoutes');
+const registroRoutes = require('./routes/registroRoutes');
 
 const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors());
-app.use(express.json()); // Habilitar JSON en el backend
+app.use(express.json());
+
+// ✅ Servir archivos estáticos desde la carpeta /uploads
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir);
+}
+app.use('/uploads', express.static(uploadsDir));
+
+// ✅ Configurar almacenamiento con multer
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, uploadsDir);
+    },
+    filename: function (req, file, cb) {
+        const nombreUnico = Date.now() + '-' + file.originalname;
+        cb(null, nombreUnico);
+    }
+});
+const upload = multer({ storage });
+
+// ✅ Ruta para subir imágenes
+app.post('/upload', upload.single('imagen'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ error: 'No se subió ninguna imagen.' });
+    }
+
+    const url = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+    res.json({ url });
+});
 
 // Verificar que la URL de la red esté definida
 if (!process.env.NETWORK) {
     throw new Error("ERROR: La variable NETWORK no está definida en el archivo .env.");
 }
 
-// Configurar Web3 para conectarse a la red especificada en .env
+// Configurar Web3
 const web3 = new Web3(process.env.NETWORK);
 
-// Importar el ABI y obtener la dirección del contrato desde .env o la migración
+// Configuración del contrato principal (CompraventaInmobiliaria)
 const contratoData = require('../build/contracts/CompraventaInmobiliaria.json');
-
 const contratoDireccion = process.env.CONTRACT_ADDRESS || contratoData.networks[Object.keys(contratoData.networks)[0]]?.address;
 
 if (!contratoDireccion) {
-    throw new Error("ERROR: No se encontró la dirección del contrato. Asegúrate de haber migrado correctamente y haber definido CONTRACT_ADDRESS en .env.");
+    throw new Error("ERROR: No se encontró la dirección del contrato CompraventaInmobiliaria.");
 }
 
-// Crear la instancia del contrato
 const contrato = new web3.eth.Contract(contratoData.abi, contratoDireccion);
 
-// Confirmar que las variables de entorno se cargaron correctamente
-console.log("Web3 conectado a:", process.env.NETWORK);
-console.log("Dirección del contrato:", contratoDireccion);
-console.log("Propietario:", process.env.PROPIETARIO);
-console.log("Comprador:", process.env.COMPRADOR);
-console.log("Notario:", process.env.NOTARIO);
+// Confirmar carga de variables
+console.log("✅ Web3 conectado a:", process.env.NETWORK);
+console.log("📄 Dirección del contrato principal:", contratoDireccion);
+console.log("🧑‍💼 Propietario:", process.env.PROPIETARIO);
+console.log("🧑‍💼 Comprador:", process.env.COMPRADOR);
+console.log("🧑‍💼 Notario:", process.env.NOTARIO);
 
-// Usar las rutas separadas
+// Rutas
 app.use('/propiedades', propiedadRoutes);
 app.use('/solicitudes', solicitudRoutes);
+app.use('/registro', registroRoutes);
 
-// 📌 Rutas para obtener los saldos del comprador y del vendedor
+// Rutas de saldo
 app.get("/saldos/:solicitudId/comprador", async (req, res) => {
     try {
         const comprador = process.env.COMPRADOR;
         if (!comprador) {
-            return res.status(400).json({ error: "❌ No se ha configurado la dirección del comprador en .env" });
+            return res.status(400).json({ error: "❌ Dirección del comprador no configurada en .env" });
         }
 
         const saldo = await web3.eth.getBalance(comprador);
@@ -62,7 +95,7 @@ app.get("/saldos/:solicitudId/vendedor", async (req, res) => {
     try {
         const vendedor = process.env.PROPIETARIO;
         if (!vendedor) {
-            return res.status(400).json({ error: "❌ No se ha configurado la dirección del vendedor en .env" });
+            return res.status(400).json({ error: "❌ Dirección del vendedor no configurada en .env" });
         }
 
         const saldo = await web3.eth.getBalance(vendedor);
@@ -73,7 +106,7 @@ app.get("/saldos/:solicitudId/vendedor", async (req, res) => {
     }
 });
 
-// Iniciar el servidor
+// Iniciar servidor
 app.listen(port, () => {
-    console.log(`Servidor ejecutándose en http://localhost:${port}`);
+    console.log(`🚀 Servidor ejecutándose en http://localhost:${port}`);
 });

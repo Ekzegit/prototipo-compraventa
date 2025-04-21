@@ -11,6 +11,8 @@
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.2.0",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^1.1.2",
     "web3": "^4.16.0"
   },
@@ -18,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postmigrate": "node sync-contracts.js"
   },
   "eslintConfig": {
     "extends": [
