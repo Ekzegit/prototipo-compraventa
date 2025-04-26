@@ -9,6 +9,8 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
 }
 
 .btn-recargar {
@@ -18,10 +20,39 @@
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
+	transition: background-color 0.3s ease;
 }
 
 	.btn-recargar:hover {
 		background-color: #0056b3;
+	}
+
+/* ✅ Botones de filtro */
+.filtro-botones {
+	display: flex;
+	gap: 10px;
+	margin-top: 15px;
+	flex-wrap: wrap;
+}
+
+.btn-filtro {
+	background-color: #e0e0e0;
+	color: #333;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	font-weight: 500;
+}
+
+	.btn-filtro.active {
+		background-color: #007bff;
+		color: white;
+	}
+
+	.btn-filtro:hover {
+		background-color: #c7c7c7;
 	}
 
 .tarjetas-container {
@@ -38,13 +69,14 @@
 	width: calc(33.333% - 20px);
 	background-color: #f9f9f9;
 	transition: box-shadow 0.3s ease;
+	display: flex;
+	flex-direction: column;
 }
 
 	.tarjeta-propiedad:hover {
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 	}
 
-/* ✅ Estilo para imágenes de las propiedades */
 .imagen-propiedad {
 	width: 100%;
 	height: 180px;
@@ -71,8 +103,17 @@
 		color: white;
 	}
 
-.loading {
+.loading,
+.no-data {
 	text-align: center;
 	font-size: 18px;
 	padding: 50px;
+	color: #666;
+}
+
+/* ✅ Responsive para móviles */
+@media (max-width: 768px) {
+	.tarjeta-propiedad {
+		width: 100%;
+	}
 }

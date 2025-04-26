@@ -1,6 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\backend",
+    "\\backend\\controllers",
+    "\\backend\\data",
+    "\\backend\\routes",
+    "\\contracts",
+    "\\frontend",
+    "\\frontend\\src",
+    "\\frontend\\src\\components"
   ],
+  "SelectedNode": "\\contracts\\CompraventaInmobiliaria.sol",
   "PreviewInSolutionExplorer": false
 }

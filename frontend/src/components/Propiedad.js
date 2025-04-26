@@ -2,6 +2,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { obtenerPropiedad } from "../services/api";
 import Slider from "react-slick";
+import axios from "axios";
+import Web3 from "web3";
 import "./Propiedad.css";
 
 export default function Propiedad({ cuenta }) {
@@ -10,13 +12,15 @@ export default function Propiedad({ cuenta }) {
     const [propiedad, setPropiedad] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const web3 = new Web3(window.ethereum); // ✅ Instancia de Web3 para conversión
+
     useEffect(() => {
         async function cargarPropiedad() {
             try {
                 const datos = await obtenerPropiedad(id);
                 setPropiedad(datos);
             } catch (error) {
-                console.error("Error al cargar propiedad:", error);
+                console.error("❌ Error al cargar propiedad:", error);
             } finally {
                 setLoading(false);
             }
@@ -24,8 +28,33 @@ export default function Propiedad({ cuenta }) {
         cargarPropiedad();
     }, [id]);
 
-    if (loading) return <p className="mensaje-cargando">Cargando propiedad...</p>;
-    if (!propiedad) return <p className="mensaje-error">No se encontró la propiedad.</p>;
+    const solicitarCompra = async () => {
+        try {
+            const ofertaEnWei = web3.utils.toWei(
+                propiedad.precio.replace(" ETH", ""),
+                "ether"
+            );
+
+            const body = {
+                propiedadId: propiedad.direccionContrato,
+                comprador: cuenta,
+                oferta: ofertaEnWei
+            };
+
+            console.log("Datos enviados al backend:", body);
+
+            const respuesta = await axios.post("http://localhost:3001/solicitudes", body);
+            console.log("✅ Solicitud enviada:", respuesta.data);
+
+            alert("✅ Solicitud de compra enviada correctamente.");
+            navigate("/solicitudes");
+        } catch (error) {
+            console.error("❌ Error al solicitar compra:", error?.response?.data || error.message || error);
+        }
+    };
+
+    if (loading) return <p className="mensaje-cargando">⏳ Cargando propiedad...</p>;
+    if (!propiedad) return <p className="mensaje-error">❌ No se encontró la propiedad.</p>;
 
     const sliderSettings = {
         dots: true,
@@ -41,7 +70,6 @@ export default function Propiedad({ cuenta }) {
             <h2 className="propiedad-titulo">Detalle de la Propiedad</h2>
 
             <div className="propiedad-flex">
-                {/* Carrusel */}
                 {Array.isArray(propiedad.imagenesUrls) && propiedad.imagenesUrls.length > 0 && (
                     <Slider {...sliderSettings} className="slider-propiedad">
                         {propiedad.imagenesUrls.map((url, index) => (
@@ -52,7 +80,6 @@ export default function Propiedad({ cuenta }) {
                     </Slider>
                 )}
 
-                {/* Detalles */}
                 <div className="propiedad-detalles">
                     <p><strong>Descripción:</strong> {propiedad.descripcion}</p>
                     <p><strong>Precio:</strong> {propiedad.precio}</p>
@@ -60,14 +87,7 @@ export default function Propiedad({ cuenta }) {
                     <p><strong>Contrato:</strong> {propiedad.direccionContrato}</p>
                     <p><strong>Estado:</strong> {propiedad.estado}</p>
 
-                    <button
-                        className="btn-solicitar"
-                        onClick={() =>
-                            navigate(
-                                `/SolicitudCompra?contrato=${propiedad.direccionContrato}&precio=${propiedad.precio}&comprador=${cuenta}`
-                            )
-                        }
-                    >
+                    <button className="btn-solicitar" onClick={solicitarCompra}>
                         📩 Solicitar Compra
                     </button>
                 </div>

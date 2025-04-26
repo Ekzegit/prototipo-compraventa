@@ -3,17 +3,14 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import ListadoPropiedades from "./components/ListadoPropiedades";
 import Propiedad from "./components/Propiedad";
 import RegistrarPropiedad from "./components/RegistrarPropiedad";
-import SolicitudCompra from "./components/SolicitudCompra";
-import AceptarSolicitud from "./components/AceptarSolicitud";
-import VerificarTransaccion from "./components/VerificarTransaccion";
 import ListadoSolicitudes from "./components/ListadoSolicitudes";
+import Historial from "./components/Historial"; // ✅ Nuevo
 import Login from "./components/Login";
-import NavBar from "./components/NavBar"; // ✅ Importamos NavBar
+import NavBar from "./components/NavBar";
 
 function App() {
     const [cuenta, setCuenta] = useState(null);
 
-    // ✅ Verificar si MetaMask ya está conectado al cargar la página
     useEffect(() => {
         const verificarConexion = async () => {
             if (window.ethereum) {
@@ -26,36 +23,32 @@ function App() {
         verificarConexion();
     }, []);
 
-    // ✅ Función para cerrar sesión
     const handleLogout = () => {
         setCuenta(null);
-        window.location.href = "/"; // Redirigir al login al cerrar sesión
+        window.location.href = "/";
     };
 
     return (
         <Router>
             <div className="App">
-                {/* ✅ Agregamos la barra de navegación en toda la aplicación */}
                 {cuenta && <NavBar cuenta={cuenta} onLogout={handleLogout} />}
 
                 <Routes>
                     {/* Página de Login */}
                     <Route path="/" element={!cuenta ? <Login setCuenta={setCuenta} /> : <Navigate to="/propiedades" />} />
 
-                    {/* ✅ Rutas protegidas: Solo accesibles si el usuario está conectado */}
+                    {/* Rutas protegidas */}
                     {cuenta && (
                         <>
                             <Route path="/propiedades" element={<ListadoPropiedades />} />
                             <Route path="/propiedades/:id" element={<Propiedad cuenta={cuenta} />} />
                             <Route path="/registrar" element={<RegistrarPropiedad cuenta={cuenta} />} />
-                            <Route path="/SolicitudCompra" element={<SolicitudCompra />} />
-                            <Route path="/aceptar-solicitud" element={<AceptarSolicitud />} />
-                            <Route path="/verificar-transaccion" element={<VerificarTransaccion />} />
                             <Route path="/solicitudes" element={<ListadoSolicitudes />} />
+                            <Route path="/historial" element={<Historial />} /> {/* ✅ Agregado Historial */}
                         </>
                     )}
 
-                    {/* Redirigir a login si intenta acceder sin estar conectado */}
+                    {/* Redirigir todo lo demás al login */}
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </div>

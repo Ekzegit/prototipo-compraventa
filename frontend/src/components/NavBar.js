@@ -17,14 +17,11 @@ const NavBar = ({ cuenta }) => {
                     <li className={location.pathname === "/registrar" ? "active" : ""}>
                         <Link to="/registrar">📝 Registrar</Link>
                     </li>
-                    <li className={location.pathname === "/aceptar-solicitud" ? "active" : ""}>
-                        <Link to="/aceptar-solicitud">✅ Aceptar</Link>
-                    </li>
-                    <li className={location.pathname === "/verificar-transaccion" ? "active" : ""}>
-                        <Link to="/verificar-transaccion">🔍 Verificar</Link>
-                    </li>
                     <li className={location.pathname === "/solicitudes" ? "active" : ""}>
-                        <Link to="/solicitudes">📬 Solicitudes Recibidas</Link>
+                        <Link to="/solicitudes">📬 Solicitudes</Link>
+                    </li>
+                    <li className={location.pathname === "/historial" ? "active" : ""}>
+                        <Link to="/historial">📚 Historial</Link>
                     </li>
                 </ul>
 

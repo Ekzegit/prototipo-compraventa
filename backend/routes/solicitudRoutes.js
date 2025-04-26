@@ -4,12 +4,23 @@ const {
     crearSolicitud,
     aceptarSolicitud,
     verificarTransaccion,
-    obtenerTodasLasSolicitudes
+    obtenerTodasLasSolicitudes,
+    obtenerHistorial
 } = require('../controllers/solicitudController');
 
+// ✅ Crear una nueva solicitud de compra
 router.post('/', crearSolicitud);
-router.post('/aceptar', aceptarSolicitud);          // Asegúrate de que esté activa
-router.post('/verificar', verificarTransaccion);    // Asegúrate de que esté activa
+
+// ✅ Aceptar una solicitud de compra
+router.post('/aceptar', aceptarSolicitud);
+
+// ✅ Verificar una transacción (por el notario)
+router.post('/verificar', verificarTransaccion);
+
+// ✅ Listar solicitudes activas (filtradas por tipo: compras / ventas / validaciones)
 router.get('/', obtenerTodasLasSolicitudes);
+
+// ✅ Nuevo endpoint para obtener el historial completo
+router.get('/historial', obtenerHistorial);
 
 module.exports = router;
