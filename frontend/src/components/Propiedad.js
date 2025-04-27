@@ -12,7 +12,7 @@ export default function Propiedad({ cuenta }) {
     const [propiedad, setPropiedad] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const web3 = new Web3(window.ethereum); // ✅ Instancia de Web3 para conversión
+    const web3 = new Web3(window.ethereum);
 
     useEffect(() => {
         async function cargarPropiedad() {
@@ -65,6 +65,10 @@ export default function Propiedad({ cuenta }) {
         arrows: true
     };
 
+    const deshabilitarSolicitud =
+        propiedad.estado !== "Disponible" ||
+        cuenta?.toLowerCase() === propiedad.propietario?.toLowerCase();
+
     return (
         <div className="propiedad-container">
             <h2 className="propiedad-titulo">Detalle de la Propiedad</h2>
@@ -87,9 +91,21 @@ export default function Propiedad({ cuenta }) {
                     <p><strong>Contrato:</strong> {propiedad.direccionContrato}</p>
                     <p><strong>Estado:</strong> {propiedad.estado}</p>
 
-                    <button className="btn-solicitar" onClick={solicitarCompra}>
+                    <button
+                        className={`btn-solicitar ${deshabilitarSolicitud ? "btn-disabled" : ""}`}
+                        onClick={solicitarCompra}
+                        disabled={deshabilitarSolicitud}
+                    >
                         📩 Solicitar Compra
                     </button>
+
+                    {deshabilitarSolicitud && (
+                        <p className="mensaje-alerta">
+                            {propiedad.estado !== "Disponible"
+                                ? "Esta propiedad ya no está disponible para solicitar compra."
+                                : "Eres el propietario de esta propiedad."}
+                        </p>
+                    )}
                 </div>
             </div>
         </div>

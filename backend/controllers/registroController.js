@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const RegistroPropiedadesABI = require('../../build/contracts/RegistroPropiedades.json');
+const CompraventaInmobiliariaABI = require('../../build/contracts/CompraventaInmobiliaria.json');
 
 const registroDireccion = process.env.CONTRACT_ADDRESS;
 if (!registroDireccion) {
@@ -29,6 +30,8 @@ const guardarImagenes = () => {
         console.error("❌ Error al guardar imagenes.json:", err);
     }
 };
+
+const estados = ['Disponible', 'En proceso de venta', 'Vendida'];
 
 // ✅ Registrar una propiedad desde RegistroPropiedades
 exports.registrarPropiedadEnRegistro = async (req, res) => {
@@ -77,7 +80,7 @@ exports.registrarPropiedadEnRegistro = async (req, res) => {
     }
 };
 
-// ✅ Obtener todas las propiedades registradas en el contrato
+// ✅ Obtener todas las propiedades registradas en el contrato con estado
 exports.obtenerPropiedadesDesdeRegistro = async (req, res) => {
     try {
         const total = await registroContrato.methods.contadorPropiedades().call();
@@ -87,13 +90,20 @@ exports.obtenerPropiedadesDesdeRegistro = async (req, res) => {
             const data = await registroContrato.methods.propiedadesRegistradas(i).call();
             const direccion = data.contratoDireccion.toLowerCase();
 
+            const instancia = new web3.eth.Contract(CompraventaInmobiliariaABI.abi, direccion);
+            const resumen = await instancia.methods.getResumen().call();
+
+            const estadoIndex = Number(resumen[4].toString());
+            const estadoTexto = estados[estadoIndex] || 'Desconocido';
+
             propiedades.push({
                 id: data.id.toString(),
                 contratoDireccion: data.contratoDireccion,
                 propietario: data.propietario,
                 descripcion: data.descripcion,
                 precio: web3.utils.fromWei(data.precio.toString(), 'ether'),
-                imagenesUrls: imagenesPorContrato[direccion] || [] // ✅ retornar array
+                estado: estadoTexto,
+                imagenesUrls: imagenesPorContrato[direccion] || []
             });
         }
 

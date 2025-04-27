@@ -3,13 +3,11 @@
     "",
     "\\backend",
     "\\backend\\controllers",
-    "\\backend\\data",
-    "\\backend\\routes",
-    "\\contracts",
     "\\frontend",
     "\\frontend\\src",
-    "\\frontend\\src\\components"
+    "\\frontend\\src\\components",
+    "\\frontend\\src\\services"
   ],
-  "SelectedNode": "\\contracts\\CompraventaInmobiliaria.sol",
+  "SelectedNode": "\\frontend\\src\\components\\Login.js",
   "PreviewInSolutionExplorer": false
 }

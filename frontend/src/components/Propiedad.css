@@ -105,6 +105,22 @@
         background-color: #2b6cb0;
     }
 
+.btn-disabled {
+    background-color: #cbd5e0;
+    cursor: not-allowed;
+}
+
+.mensaje-alerta {
+    margin-top: 10px;
+    background-color: #fff5f5;
+    color: #c53030;
+    padding: 8px 12px;
+    border: 1px solid #fed7d7;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
 /* ✅ Responsive */
 @media (max-width: 768px) {
     .propiedad-flex {

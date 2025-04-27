@@ -67,6 +67,12 @@
     margin-top: 10px;
 }
 
+.saldo {
+    margin-left: 10px;
+    font-size: 0.85rem;
+    color: #bdc3c7;
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         flex-direction: column;

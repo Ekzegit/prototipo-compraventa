@@ -46,7 +46,7 @@ const Login = ({ setUserAccount }) => {
             {/* ✅ Mostrar solo si hay cuenta conectada */}
             {account && <p style={{ color: "green" }}>✅ Conectado: {account}</p>}
 
-            {/* ✅ Ocultar error si se conectó correctamente */}
+            {/* ✅ Mostrar error solo si no está conectada */}
             {error && !account && <p style={{ color: "red" }}>{error}</p>}
         </div>
     );
