@@ -54,8 +54,8 @@ exports.registrarPropiedadEnRegistro = async (req, res) => {
 
         if (evento?.contratoDireccion && Array.isArray(imagenesUrls)) {
             const direccion = evento.contratoDireccion.toLowerCase();
-            imagenesPorContrato[direccion] = imagenesUrls; // ✅ Guardar array
-            guardarImagenes(); // 💾 Persistencia
+            imagenesPorContrato[direccion] = imagenesUrls;
+            guardarImagenes();
         }
 
         res.json({
@@ -93,8 +93,16 @@ exports.obtenerPropiedadesDesdeRegistro = async (req, res) => {
             const instancia = new web3.eth.Contract(CompraventaInmobiliariaABI.abi, direccion);
             const resumen = await instancia.methods.getResumen().call();
 
-            const estadoIndex = Number(resumen[4].toString());
-            const estadoTexto = estados[estadoIndex] || 'Desconocido';
+            let estadoIndex;
+            try {
+                estadoIndex = Number(resumen[4].toString());
+            } catch {
+                estadoIndex = -1;
+            }
+
+            const estadoTexto = (estadoIndex >= 0 && estadoIndex < estados.length)
+                ? estados[estadoIndex]
+                : 'Desconocido';
 
             propiedades.push({
                 id: data.id.toString(),

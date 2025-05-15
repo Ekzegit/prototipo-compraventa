@@ -2,6 +2,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { obtenerPropiedad } from "../services/api";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 import Web3 from "web3";
 import "./Propiedad.css";
@@ -18,6 +20,7 @@ export default function Propiedad({ cuenta }) {
         async function cargarPropiedad() {
             try {
                 const datos = await obtenerPropiedad(id);
+                console.log("🔍 Propiedad recibida:", datos);
                 setPropiedad(datos);
             } catch (error) {
                 console.error("❌ Error al cargar propiedad:", error);
@@ -56,9 +59,12 @@ export default function Propiedad({ cuenta }) {
     if (loading) return <p className="mensaje-cargando">⏳ Cargando propiedad...</p>;
     if (!propiedad) return <p className="mensaje-error">❌ No se encontró la propiedad.</p>;
 
+    console.log("🖼️ imágenes recibidas:", propiedad.imagenesUrls);
+
+
     const sliderSettings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,

@@ -14,7 +14,6 @@ const sanitize = (obj) => JSON.parse(JSON.stringify(obj, (_, v) => typeof v === 
 const crearSolicitud = async (req, res) => {
     try {
         const { propiedadId, comprador, oferta } = req.body;
-
         if (!propiedadId || !comprador || !oferta) {
             return res.status(400).json({ error: "Debe proporcionar propiedadId, comprador y oferta." });
         }
@@ -56,24 +55,20 @@ const crearSolicitud = async (req, res) => {
 // ✅ Aceptar solicitud
 const aceptarSolicitud = async (req, res) => {
     try {
-        const { direccionContrato, propietario } = req.body;
-
-        if (!direccionContrato || !propietario) {
-            return res.status(400).json({ error: "Debe proporcionar dirección del contrato y propietario." });
+        const { direccionContrato, propietario, index } = req.body;
+        if (!direccionContrato || !propietario || index === undefined) {
+            return res.status(400).json({ error: "Debe proporcionar dirección del contrato, propietario e índice de solicitud." });
         }
 
         const contrato = new web3.eth.Contract(CompraventaInmobiliaria.abi, direccionContrato);
 
-        const resultado = await contrato.methods.aceptarSolicitud().send({
+        const resultado = await contrato.methods.aceptarSolicitud(index).send({
             from: propietario,
             gas: 3000000,
             gasPrice: await web3.eth.getGasPrice()
         });
 
-        res.json({
-            mensaje: "✅ Solicitud aceptada correctamente.",
-            resultado: sanitize(resultado)
-        });
+        res.json({ mensaje: "✅ Solicitud aceptada correctamente.", resultado: sanitize(resultado) });
 
     } catch (error) {
         console.error("❌ Error al aceptar la solicitud:", error?.cause?.message || error.message);
@@ -81,13 +76,37 @@ const aceptarSolicitud = async (req, res) => {
     }
 };
 
+// ✅ Rechazar solicitud (ahora con índice)
+const rechazarSolicitud = async (req, res) => {
+    try {
+        const { direccionContrato, propietario, index } = req.body;
+        if (!direccionContrato || !propietario || index === undefined) {
+            return res.status(400).json({ error: "Debe proporcionar dirección del contrato, propietario e índice de solicitud." });
+        }
+
+        const contrato = new web3.eth.Contract(CompraventaInmobiliaria.abi, direccionContrato);
+
+        const resultado = await contrato.methods.rechazarSolicitud(index).send({
+            from: propietario,
+            gas: 3000000,
+            gasPrice: await web3.eth.getGasPrice()
+        });
+
+        res.json({ mensaje: "✅ Solicitud rechazada correctamente.", resultado: sanitize(resultado) });
+
+    } catch (error) {
+        console.error("❌ Error al rechazar la solicitud:", error?.cause?.message || error.message);
+        res.status(500).json({ error: "Error al rechazar la solicitud.", detalles: error?.cause?.message || error.message });
+    }
+};
+
+
 // ✅ Verificar transacción
 const verificarTransaccion = async (req, res) => {
     try {
-        const { direccionContrato, notario } = req.body;
-
-        if (!direccionContrato || !notario) {
-            return res.status(400).json({ error: "Debe proporcionar dirección del contrato y notario." });
+        const { direccionContrato, notario, index } = req.body;
+        if (!direccionContrato || !notario || index === undefined) {
+            return res.status(400).json({ error: "Debe proporcionar dirección del contrato, notario e índice de solicitud." });
         }
 
         if (notario.toLowerCase() !== notarioAutorizado) {
@@ -96,16 +115,13 @@ const verificarTransaccion = async (req, res) => {
 
         const contrato = new web3.eth.Contract(CompraventaInmobiliaria.abi, direccionContrato);
 
-        const resultado = await contrato.methods.verificarTransaccion().send({
+        const resultado = await contrato.methods.verificarTransaccion(index).send({
             from: notario,
             gas: 3000000,
             gasPrice: await web3.eth.getGasPrice()
         });
 
-        res.json({
-            mensaje: "✅ Transacción verificada correctamente.",
-            resultado: sanitize(resultado)
-        });
+        res.json({ mensaje: "✅ Transacción verificada correctamente.", resultado: sanitize(resultado) });
 
     } catch (error) {
         console.error("❌ Error al verificar la transacción:", error?.cause?.message || error.message);
@@ -113,7 +129,7 @@ const verificarTransaccion = async (req, res) => {
     }
 };
 
-// ✅ Obtener solicitudes activas
+// ✅ Obtener todas las solicitudes (incluye rechazadas)
 const obtenerTodasLasSolicitudes = async (req, res) => {
     try {
         const cuenta = req.query.cuenta?.toLowerCase();
@@ -128,47 +144,53 @@ const obtenerTodasLasSolicitudes = async (req, res) => {
 
             const contrato = new web3.eth.Contract(CompraventaInmobiliaria.abi, direccion);
             const resumen = await contrato.methods.getResumen().call();
+            const todas = await contrato.methods.obtenerTodasLasSolicitudes().call();
 
             const propietarioActual = resumen[0];
             const descripcion = resumen[2];
             const precio = resumen[3];
-            const comprador = resumen[5];
-            const oferta = resumen[6];
-            const aceptada = resumen[7];
-            const verificada = resumen[8];
 
-            if (!comprador || comprador === "0x0000000000000000000000000000000000000000") continue;
-            if (verificada) continue; // ⚡️ No mostrar solicitudes finalizadas
+            for (let j = 0; j < todas.length; j++) {
+                const solicitud = todas[j];
+                const comprador = solicitud.comprador;
+                const oferta = solicitud.oferta;
+                const estadoSolicitud = parseInt(solicitud.estado);
 
-            const esComprador = cuenta === comprador.toLowerCase();
-            const esPropietario = cuenta === propietarioActual.toLowerCase();
-            const cumpleFiltro =
-                !cuenta ||
-                (tipo === "compras" && esComprador) ||
-                (tipo === "ventas" && esPropietario);
+                const esComprador = cuenta === comprador.toLowerCase();
+                const esPropietario = cuenta === propietarioActual.toLowerCase();
 
-            if (cumpleFiltro) {
-                solicitudes.push({
-                    id: i.toString(),
-                    propiedadId: datos.id.toString(),
-                    nombre: descripcion,
-                    direccionContrato: direccion,
-                    propietario: propietarioActual,
-                    comprador,
-                    oferta: web3.utils.fromWei(oferta.toString(), 'ether') + ' ETH',
-                    estado: aceptada ? 'Aceptada' : 'Pendiente'
-                });
+                const cumpleFiltro =
+                    !cuenta ||
+                    (tipo === "compras" && esComprador) ||
+                    (tipo === "ventas" && esPropietario);
+
+                if (cumpleFiltro) {
+                    let estadoTexto = "Pendiente";
+                    if (estadoSolicitud === 1) estadoTexto = "Aceptada";
+                    else if (estadoSolicitud === 2) estadoTexto = "Rechazada";
+
+                    solicitudes.push({
+                        id: `${i}-${j}`,
+                        propiedadId: datos.id.toString(),
+                        nombre: descripcion,
+                        direccionContrato: direccion,
+                        propietario: propietarioActual,
+                        comprador,
+                        oferta: web3.utils.fromWei(oferta.toString(), 'ether') + ' ETH',
+                        estado: estadoTexto
+                    });
+                }
             }
         }
 
         res.json(solicitudes);
     } catch (error) {
-        console.error("❌ Error al obtener solicitudes:", error?.message);
+        console.error("❌ Error al obtener solicitudes múltiples:", error);
         res.status(500).json({ error: "Error al obtener solicitudes.", detalles: error.message });
     }
 };
 
-// ✅ Obtener historial
+
 // ✅ Obtener historial (solo transacciones verificadas)
 const obtenerHistorial = async (req, res) => {
     try {
@@ -190,14 +212,11 @@ const obtenerHistorial = async (req, res) => {
             const propietarioActual = resumen[0];
             const descripcion = resumen[2];
             const precio = resumen[3];
-            const estado = parseInt(resumen[4]);
             const comprador = resumen[5];
             const oferta = resumen[6];
-            const aceptada = resumen[7];
             const verificada = resumen[8];
-            const propietarioOriginal = resumen[9]; // ✨ Aquí capturamos el vendedor original
+            const propietarioOriginal = resumen[9];
 
-            // ✅ Solo considerar propiedades VERIFICADAS
             if (!verificada) continue;
 
             const fueComprador = comprador && cuenta === comprador.toLowerCase();
@@ -210,10 +229,10 @@ const obtenerHistorial = async (req, res) => {
                     propiedadId: datos.id.toString(),
                     nombre: descripcion,
                     direccionContrato: direccion,
-                    propietario: propietarioActual, // este sigue siendo el actual, no el original
+                    propietario: propietarioActual,
                     comprador,
                     oferta: web3.utils.fromWei(oferta.toString(), 'ether') + ' ETH',
-                    estado: 'Verificada', // porque filtramos arriba
+                    estado: 'Verificada',
                     rol: fueComprador ? 'comprador' : fuePropietario ? 'vendedor' : 'notario'
                 });
             }
@@ -226,10 +245,10 @@ const obtenerHistorial = async (req, res) => {
     }
 };
 
-
 module.exports = {
     crearSolicitud,
     aceptarSolicitud,
+    rechazarSolicitud,
     verificarTransaccion,
     obtenerTodasLasSolicitudes,
     obtenerHistorial

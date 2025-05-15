@@ -37,9 +37,9 @@
             text-align: center;
         }
 
-    .tabla-solicitudes tr:hover {
+  /*  .tabla-solicitudes tr:hover {
         background-color: #f9f9f9;
-    }
+    }*/
 
 .mensaje-cargando,
 .mensaje-error {

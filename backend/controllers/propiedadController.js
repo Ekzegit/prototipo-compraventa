@@ -54,8 +54,11 @@ exports.registrarPropiedad = async (req, res) => {
                 imagenesPorContrato[direccion] = [imagenesPorContrato[direccion]];
             }
 
-            imagenesPorContrato[direccion].push(imagenUrl);
-            guardarImagenes();
+            if (!imagenesPorContrato[direccion].includes(imagenUrl)) {
+                imagenesPorContrato[direccion].push(imagenUrl);
+                guardarImagenes();
+            }
+
         }
 
         res.json({
@@ -134,6 +137,9 @@ exports.obtenerPropiedadPorDireccion = async (req, res) => {
         const estadoIndex = Number(resumen[4].toString());
         const estadoTexto = estados[estadoIndex] || 'Desconocido';
 
+        console.log("📁 Imagen para propiedad", direccionLower, ":", imagenesPorContrato[direccionLower]);
+
+
         const propiedad = {
             id: idEncontrado,
             direccionContrato: direccionLower,
@@ -143,6 +149,8 @@ exports.obtenerPropiedadPorDireccion = async (req, res) => {
             estado: estadoTexto,
             imagenesUrls: Array.isArray(imagenesPorContrato[direccionLower]) ? imagenesPorContrato[direccionLower] : []
         };
+
+        console.log("📷 Imágenes enviadas al frontend:", propiedad.imagenesUrls);
 
         res.json(propiedad);
 

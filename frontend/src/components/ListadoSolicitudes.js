@@ -10,8 +10,7 @@ const ListadoSolicitudes = () => {
     const [error, setError] = useState("");
     const [cuenta, setCuenta] = useState("");
     const [tipo, setTipo] = useState("compras");
-
-    const esNotario = cuenta.toLowerCase() === NOTARIO_DIRECCION.toLowerCase();
+    const [refreshKey, setRefreshKey] = useState(0);
 
     useEffect(() => {
         const cargarSolicitudes = async () => {
@@ -26,12 +25,14 @@ const ListadoSolicitudes = () => {
                 }
 
                 setCuenta(cuentaActual);
+                const soyNotario = cuentaActual.toLowerCase() === NOTARIO_DIRECCION.toLowerCase();
 
-                const url = esNotario && tipo === "validaciones"
+                const url = soyNotario && tipo === "validaciones"
                     ? "http://localhost:3001/solicitudes"
                     : `http://localhost:3001/solicitudes?cuenta=${cuentaActual}&tipo=${tipo}`;
 
                 const respuesta = await axios.get(url);
+                console.log("✅ Solicitudes recibidas:", respuesta.data);
 
                 const filtradas = (tipo === "validaciones")
                     ? respuesta.data.filter(sol =>
@@ -40,7 +41,7 @@ const ListadoSolicitudes = () => {
                         sol.propietario.toLowerCase() !== cuentaActual.toLowerCase()
                     )
                     : respuesta.data.filter(sol =>
-                        sol.estado !== "Verificada" // 👉 No mostrar solicitudes verificadas en compras/ventas
+                        sol.estado !== "Verificada"
                     );
 
                 setSolicitudes(filtradas);
@@ -53,7 +54,7 @@ const ListadoSolicitudes = () => {
         };
 
         cargarSolicitudes();
-    }, [tipo]);
+    }, [tipo, refreshKey]);
 
     const renderBadgeEstado = (estado) => {
         const texto = estado?.toLowerCase();
@@ -64,46 +65,71 @@ const ListadoSolicitudes = () => {
         return <span className={clase}>{estado}</span>;
     };
 
-    const manejarAceptar = async (direccionContrato) => {
+    const actualizarListado = () => setRefreshKey(prev => prev + 1);
+
+    const manejarAceptar = async (direccionContrato, index) => {
         try {
             await axios.post("http://localhost:3001/solicitudes/aceptar", {
                 direccionContrato,
-                propietario: cuenta
+                propietario: cuenta,
+                index
             });
             alert("✅ Solicitud aceptada correctamente.");
-            window.location.reload();
+            actualizarListado();
         } catch (error) {
             console.error("❌ Error al aceptar la solicitud:", error);
             alert("❌ Error al aceptar la solicitud.");
         }
     };
 
-    const manejarVerificar = async (direccionContrato) => {
+    const manejarRechazar = async (direccionContrato, index) => {
+        try {
+            await axios.post("http://localhost:3001/solicitudes/rechazar", {
+                direccionContrato,
+                propietario: cuenta,
+                index
+            });
+            alert("🛑 Solicitud rechazada correctamente.");
+            actualizarListado();
+        } catch (error) {
+            console.error("❌ Error al rechazar la solicitud:", error);
+            alert("❌ Error al rechazar la solicitud.");
+        }
+    };
+
+    const manejarVerificar = async (direccionContrato, index) => {
         try {
             await axios.post("http://localhost:3001/solicitudes/verificar", {
                 direccionContrato,
-                notario: cuenta
+                notario: cuenta,
+                index
             });
             alert("✅ Transacción verificada correctamente.");
-            window.location.reload();
+            actualizarListado();
         } catch (error) {
             console.error("❌ Error al verificar la transacción:", error);
             alert("❌ Error al verificar la transacción.");
         }
     };
 
-    const renderAcciones = (sol) => {
+    const renderAcciones = (sol, index) => {
         const esPropietario = cuenta.toLowerCase() === sol.propietario.toLowerCase();
+        const esNotario = cuenta.toLowerCase() === NOTARIO_DIRECCION.toLowerCase();
 
         if (sol.estado === "Pendiente" && esPropietario) {
-            return <button onClick={() => manejarAceptar(sol.direccionContrato)}>✅ Aceptar</button>;
+            return (
+                <>
+                    <button onClick={() => manejarAceptar(sol.direccionContrato, index)}>✅ Aceptar</button>
+                    <button onClick={() => manejarRechazar(sol.direccionContrato, index)}>🛑 Rechazar</button>
+                </>
+            );
         }
 
         if (sol.estado === "Aceptada" && esNotario &&
             sol.propietario.toLowerCase() !== cuenta.toLowerCase() &&
             sol.comprador.toLowerCase() !== cuenta.toLowerCase()
         ) {
-            return <button onClick={() => manejarVerificar(sol.direccionContrato)}>📜 Verificar</button>;
+            return <button onClick={() => manejarVerificar(sol.direccionContrato, index)}>📜 Verificar</button>;
         }
 
         return <span style={{ color: "#aaa" }}>Sin acciones</span>;
@@ -114,12 +140,16 @@ const ListadoSolicitudes = () => {
 
     return (
         <div className="listado-solicitudes-container">
-            <h2>📄 {esNotario && tipo === "validaciones" ? "Solicitudes para Validar" : `Tus Solicitudes de ${tipo === "compras" ? "Compra" : "Venta"}`}</h2>
+            <h2>
+                📄 {cuenta.toLowerCase() === NOTARIO_DIRECCION.toLowerCase() && tipo === "validaciones"
+                    ? "Solicitudes para Validar"
+                    : `Tus Solicitudes de ${tipo === "compras" ? "Compra" : "Venta"}`}
+            </h2>
 
             <div className="filtros-solicitudes">
                 <button className={tipo === "compras" ? "activo" : ""} onClick={() => setTipo("compras")}>🛒 Compras</button>
                 <button className={tipo === "ventas" ? "activo" : ""} onClick={() => setTipo("ventas")}>🏠 Ventas</button>
-                {esNotario && (
+                {cuenta.toLowerCase() === NOTARIO_DIRECCION.toLowerCase() && (
                     <button className={tipo === "validaciones" ? "activo" : ""} onClick={() => setTipo("validaciones")}>📜 Validaciones</button>
                 )}
             </div>
@@ -136,16 +166,25 @@ const ListadoSolicitudes = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {solicitudes.map((sol) => (
-                        <tr key={sol.id}>
-                            <td>{sol.nombre || "-"}</td>
-                            <td style={{ fontSize: "0.75rem" }}>{sol.direccionContrato}</td>
-                            <td>{sol.oferta}</td>
-                            <td>{renderBadgeEstado(sol.estado)}</td>
-                            <td>{tipo === "compras" ? sol.propietario : tipo === "ventas" ? sol.comprador : `${sol.propietario.slice(0, 6)} / ${sol.comprador.slice(0, 6)}`}</td>
-                            <td>{renderAcciones(sol)}</td>
-                        </tr>
-                    ))}
+                    {solicitudes.map((sol) => {
+                        const [_, index] = sol.id.split("-");
+                        return (
+                            <tr key={sol.id}>
+                                <td>{sol.nombre || "-"}</td>
+                                <td style={{ fontSize: "0.75rem" }}>{sol.direccionContrato}</td>
+                                <td>{sol.oferta}</td>
+                                <td>{renderBadgeEstado(sol.estado)}</td>
+                                <td>
+                                    {tipo === "compras"
+                                        ? sol.propietario
+                                        : tipo === "ventas"
+                                            ? sol.comprador
+                                            : `${sol.propietario.slice(0, 6)} / ${sol.comprador.slice(0, 6)}`}
+                                </td>
+                                <td>{renderAcciones(sol, index)}</td>
+                            </tr>
+                        );
+                    })}
                 </tbody>
             </table>
         </div>

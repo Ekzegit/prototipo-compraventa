@@ -5,7 +5,8 @@ const {
     aceptarSolicitud,
     verificarTransaccion,
     obtenerTodasLasSolicitudes,
-    obtenerHistorial
+    obtenerHistorial,
+    rechazarSolicitud 
 } = require('../controllers/solicitudController');
 
 // ✅ Crear una nueva solicitud de compra
@@ -16,6 +17,9 @@ router.post('/aceptar', aceptarSolicitud);
 
 // ✅ Verificar una transacción (por el notario)
 router.post('/verificar', verificarTransaccion);
+
+// ✅ Rechazar una solicitud (por el propietario)
+router.post('/rechazar', rechazarSolicitud); 
 
 // ✅ Listar solicitudes activas (filtradas por tipo: compras / ventas / validaciones)
 router.get('/', obtenerTodasLasSolicitudes);

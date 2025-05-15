@@ -27,20 +27,20 @@ const Login = ({ setUserAccount }) => {
 
     return (
         <div style={{ textAlign: "center", marginTop: "100px" }}>
-            <h2>🔐 Inicia sesión con MetaMask</h2>
+            <h2>🔐 Bienvenidos Portal Compra Venta Inmobiliaria!</h2>
             <button
                 onClick={handleOpenMetaMask}
                 style={{
                     fontSize: "18px",
                     padding: "10px",
                     cursor: "pointer",
-                    backgroundColor: "#f6851b",
-                    color: "white",
+                    backgroundColor: "skyblue",
+                    color: "black",
                     border: "none",
                     borderRadius: "5px"
                 }}
             >
-                🦊 Abrir MetaMask
+                🦊 Iniciar Sesion...
             </button>
 
             {/* ✅ Mostrar solo si hay cuenta conectada */}

@@ -30,6 +30,39 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+/* ✅ Mostrar flechas correctamente */
+.slick-prev, .slick-next {
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: #2d3748;
+        font-size: 30px;
+        opacity: 1;
+    }
+
+/* ✅ Puntos de navegación */
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #a0aec0;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #2d3748;
 }
 
 .imagen-slider {
@@ -58,21 +91,6 @@
         color: #1a202c;
         font-weight: 600;
     }
-
-.slick-prev:before,
-.slick-next:before {
-    color: #2d3748;
-    font-size: 30px;
-}
-
-.slick-dots li button:before {
-    font-size: 12px;
-    color: #a0aec0;
-}
-
-.slick-dots li.slick-active button:before {
-    color: #2d3748;
-}
 
 .mensaje-cargando,
 .mensaje-error {
@@ -133,5 +151,13 @@
 
     .propiedad-detalles {
         padding: 20px;
+    }
+
+    .slick-prev {
+        left: 5px;
+    }
+
+    .slick-next {
+        right: 5px;
     }
 }

@@ -1,8 +1,15 @@
-// SDPX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract CompraventaInmobiliaria {
     enum EstadoPropiedad { Disponible, EnProcesoDeVenta, Vendida }
+    enum EstadoSolicitud { Pendiente, Aceptada, Rechazada }
+
+    struct Solicitud {
+        address comprador;
+        uint oferta;
+        EstadoSolicitud estado;
+    }
 
     uint public id;
     address public propietario;
@@ -11,24 +18,17 @@ contract CompraventaInmobiliaria {
     string public descripcion;
     uint public precio;
     EstadoPropiedad public estado;
-
-    address public comprador;
-    uint public oferta;
-    bool public aceptada;
     bool public verificada;
 
+    Solicitud[] public solicitudes;
+
     modifier soloPropietario() {
-        require(msg.sender == propietario, "No eres el propietario.");
+        require(msg.sender == propietario, "No eres el propietario");
         _;
     }
 
     modifier soloNotario() {
-        require(msg.sender == notario, "Solo el notario puede verificar la transaccion.");
-        _;
-    }
-
-    modifier soloComprador() {
-        require(msg.sender == comprador, "Solo el comprador puede continuar.");
+        require(msg.sender == notario, "Solo el notario puede verificar");
         _;
     }
 
@@ -38,10 +38,10 @@ contract CompraventaInmobiliaria {
         string memory _descripcion,
         uint _precio
     ) {
-        require(_propietario != address(0), "Propietario invalido.");
-        require(_notario != address(0), "Notario invalido.");
-        require(_propietario != _notario, "Notario no puede ser propietario.");
-        require(_precio > 0, "Precio debe ser mayor a cero.");
+        require(_propietario != address(0), "Propietario invalido");
+        require(_notario != address(0), "Notario invalido");
+        require(_propietario != _notario, "Notario no puede ser propietario");
+        require(_precio > 0, "Precio debe ser mayor a cero");
 
         propietario = _propietario;
         propietarioOriginal = _propietario;
@@ -52,59 +52,98 @@ contract CompraventaInmobiliaria {
     }
 
     function solicitarCompra() public payable {
-        require(estado == EstadoPropiedad.Disponible, "Propiedad no disponible.");
-        require(msg.sender != propietario && msg.sender != notario, "No autorizado.");
-        require(msg.value == precio, "Monto enviado incorrecto.");
+        require(estado == EstadoPropiedad.Disponible, "Propiedad no disponible");
+        require(msg.sender != propietario && msg.sender != notario, "No autorizado");
+        require(msg.value == precio, "Monto incorrecto");
 
-        comprador = msg.sender;
-        oferta = msg.value;
+        solicitudes.push(Solicitud({
+            comprador: msg.sender,
+            oferta: msg.value,
+            estado: EstadoSolicitud.Pendiente
+        }));
+
         estado = EstadoPropiedad.EnProcesoDeVenta;
     }
 
-    function aceptarSolicitud() public soloPropietario {
-        require(estado == EstadoPropiedad.EnProcesoDeVenta, "No hay solicitud activa.");
-        require(!aceptada, "Ya fue aceptada.");
-        aceptada = true;
+    function aceptarSolicitud(uint index) public soloPropietario {
+        require(index < solicitudes.length, "Indice invalido");
+        Solicitud storage s = solicitudes[index];
+        require(s.estado == EstadoSolicitud.Pendiente, "Solicitud ya resuelta");
+
+        s.estado = EstadoSolicitud.Aceptada;
     }
 
-    function rechazarSolicitud() public soloPropietario {
-        require(estado == EstadoPropiedad.EnProcesoDeVenta, "No hay solicitud en proceso.");
-        require(!aceptada, "No se puede rechazar una solicitud aceptada.");
+    function rechazarSolicitud(uint index) public soloPropietario {
+        require(index < solicitudes.length, "Indice invalido");
+        Solicitud storage s = solicitudes[index];
+        require(s.estado == EstadoSolicitud.Pendiente, "Solicitud ya resuelta");
 
-        payable(comprador).transfer(oferta);
+        s.estado = EstadoSolicitud.Rechazada;
+        payable(s.comprador).transfer(s.oferta);
 
-        comprador = address(0);
-        oferta = 0;
-        estado = EstadoPropiedad.Disponible;
+        bool hayPendiente = false;
+        for (uint i = 0; i < solicitudes.length; i++) {
+            if (solicitudes[i].estado == EstadoSolicitud.Pendiente) {
+                hayPendiente = true;
+                break;
+            }
+        }
+
+        if (!hayPendiente) {
+            estado = EstadoPropiedad.Disponible;
+        }
     }
 
-    function verificarTransaccion() public soloNotario {
-        require(aceptada, "Solicitud no aceptada.");
-        require(!verificada, "Ya verificada.");
+    function verificarTransaccion(uint index) public soloNotario {
+        require(index < solicitudes.length, "Indice invalido");
+        Solicitud storage s = solicitudes[index];
+        require(s.estado == EstadoSolicitud.Aceptada, "No aceptada");
+        require(!verificada, "Ya verificada");
 
         verificada = true;
         estado = EstadoPropiedad.Vendida;
 
         address anteriorPropietario = propietario;
-        propietario = comprador;
+        propietario = s.comprador;
 
-        payable(anteriorPropietario).transfer(oferta);
+        payable(anteriorPropietario).transfer(s.oferta);
     }
 
     function getResumen() public view returns (
-        address, address, string memory, uint, EstadoPropiedad, address, uint, bool, bool, address
+        address, address, string memory, uint, uint, address, uint, bool, bool, address
     ) {
+        address compradorActivo = address(0);
+        uint ofertaActiva = 0;
+        bool aceptada = false;
+
+        for (uint i = 0; i < solicitudes.length; i++) {
+            if (solicitudes[i].estado == EstadoSolicitud.Pendiente) {
+                compradorActivo = solicitudes[i].comprador;
+                ofertaActiva = solicitudes[i].oferta;
+                break;
+            } else if (solicitudes[i].estado == EstadoSolicitud.Aceptada) {
+                compradorActivo = solicitudes[i].comprador;
+                ofertaActiva = solicitudes[i].oferta;
+                aceptada = true;
+                break;
+            }
+        }
+
         return (
             propietario,
             notario,
             descripcion,
             precio,
-            estado,
-            comprador,
-            oferta,
+            uint(estado),
+            compradorActivo,
+            ofertaActiva,
             aceptada,
             verificada,
             propietarioOriginal
         );
+    }
+
+    function obtenerTodasLasSolicitudes() public view returns (Solicitud[] memory) {
+        return solicitudes;
     }
 }

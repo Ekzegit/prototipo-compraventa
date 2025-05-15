@@ -1,13 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backend",
     "\\backend\\controllers",
+    "\\backend\\data",
+    "\\backend\\routes",
     "\\frontend",
     "\\frontend\\src",
     "\\frontend\\src\\components",
     "\\frontend\\src\\services"
   ],
-  "SelectedNode": "\\frontend\\src\\components\\Login.js",
+  "SelectedNode": "\\frontend\\src\\services\\web3Service.js",
   "PreviewInSolutionExplorer": false
 }
