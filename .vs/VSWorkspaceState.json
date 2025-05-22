@@ -1,14 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backend\\controllers",
-    "\\backend\\data",
-    "\\backend\\routes",
-    "\\frontend",
     "\\frontend\\src",
     "\\frontend\\src\\components",
-    "\\frontend\\src\\services"
+    "\\frontend\\src\\services",
+    "\\migrations"
   ],
-  "SelectedNode": "\\frontend\\src\\services\\web3Service.js",
+  "SelectedNode": "\\migrations\\2_deploy_contracts.js",
   "PreviewInSolutionExplorer": false
 }
